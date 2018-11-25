@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+def config = rootProject.extensions.getByName("ext")
+
+android {
+    compileSdkVersion config["compileSdkVersion"]
+    defaultConfig {
+        applicationId "bicca.lucas.agronutriapp"
+        minSdkVersion config["minSdkVersion"]
+        targetSdkVersion config["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation config.commonDependency.kotlin
+    implementation config.commonDependency.supportLib
+    implementation config.commonDependency.constraintLayout
+
+    testImplementation config.testDependency.jUnit
+    androidTestImplementation config.testDependency.testRunner
+    androidTestImplementation config.testDependency.espressoCore
+}
