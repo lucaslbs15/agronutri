@@ -20,6 +20,7 @@ class Calculation {
             PhEnum.pH55 -> ncByPh55(mo, al)
             PhEnum.pH60 -> ncByPh60(mo, al)
             PhEnum.pH65 -> ncByPh65(mo, al)
+            PhEnum.noReference -> 0.0
         }
 
         /**

@@ -55,6 +55,7 @@ class CalQuantity {
                 PhEnum.pH55 -> tByHas[0]
                 PhEnum.pH60 -> tByHas[1]
                 PhEnum.pH65 -> tByHas[2]
+                PhEnum.noReference -> 0.0
             }
         } ?: return 0.0
     }
