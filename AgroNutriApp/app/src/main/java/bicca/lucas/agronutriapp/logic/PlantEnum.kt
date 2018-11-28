@@ -1,0 +1,52 @@
+package bicca.lucas.agronutriapp.logic
+
+enum class PlantEnum(val phEnum: PhEnum) {
+
+    // region --- pH 6,5 ---
+    ALFAFA(PhEnum.pH65), ASPARGO(PhEnum.pH65), MACIEIRA(PhEnum.pH65), OLIVEIRA(PhEnum.pH65),
+    PIRETRO(PhEnum.pH65),
+    // endregion
+
+    // region --- pH 6,0 ---
+    ABACATEIRO(PhEnum.pH60), ABOBORA(PhEnum.pH60), ABOBRINHA(PhEnum.pH60), ALCACHOFRA(PhEnum.pH60),
+    ALFACE(PhEnum.pH60), ALHO(PhEnum.pH60), ALMEIRAO(PhEnum.pH60), AMEIXEIRA(PhEnum.pH60),
+    AMENDOIM(PhEnum.pH60), ARROZ_DE_SEQUEIRO(PhEnum.pH60), AVEIA(PhEnum.pH60), BANANEIRA(PhEnum.pH60),
+    BATATA_DOCE(PhEnum.pH60), BERINJELA(PhEnum.pH60), BETERRABA(PhEnum.pH60), BROCOLIS(PhEnum.pH60),
+    CANA_DE_ACUCAR(PhEnum.pH60), CAMOMILA_60(PhEnum.pH60), CANOLA(PhEnum.pH60),
+    CAPIM_LIMAO(PhEnum.pH60), CAQUIZEIRO(PhEnum.pH60), CEBOLA(PhEnum.pH60), CENOURA(PhEnum.pH60),
+    CENTEIO(PhEnum.pH60), CEVADA(PhEnum.pH60), CHICORIA(PhEnum.pH60), CHUCHU(PhEnum.pH60),
+    CITROS(PhEnum.pH60), CONSORCIACAO_DE_GRAMINEAS_E_LEGUMINOSAS_ESTACAO_FRIA(PhEnum.pH60),
+    CONSORCIACAO_DE_GRAMINEAS_E_LEGUMINOSAS_ESTACAO_QUENTE(PhEnum.pH60), COUVE_FLOR(PhEnum.pH60),
+    CRISANTEMO(PhEnum.pH60), ERVILHA(PhEnum.pH60), ERVILHA_FORRAGEIRA(PhEnum.pH60),
+    ERVILHACA(PhEnum.pH60), ESTEVIA(PhEnum.pH60), FEIJAO(PhEnum.pH60), FIGUEIRA(PhEnum.pH60),
+    GENGIBRE(PhEnum.pH60), GIRASSOL(PhEnum.pH60), GRAMINEAS_FORRAGEIRAS_DE_ESTACAO_FRIA(PhEnum.pH60),
+    GRAMINEAS_FORRAGEIRAS_DE_ESTACAO_QUENTE(PhEnum.pH60), HORTELA(PhEnum.pH60),
+    LEGUMINOSAS_FORRAGEIRAS_DE_ESTACAO_FRIA(PhEnum.pH60),
+    LEGUMINOSAS_FORRAGEIRAS_DE_ESTACAO_QUENTE(PhEnum.pH60), LINHO(PhEnum.pH60),
+    MILHO_PIPOCA(PhEnum.pH60), MORANGA(PhEnum.pH60), MORANGUEIRO(PhEnum.pH60), NABO(PhEnum.pH60),
+    NABO_FORRAGEIRO(PhEnum.pH60), NECTARINEIRA(PhEnum.pH60), NOGUEIRA_PECA(PhEnum.pH60),
+    PAINCO(PhEnum.pH60), PALMA_ROSA(PhEnum.pH60), PEPINO(PhEnum.pH60), PEREIRA(PhEnum.pH60),
+    PESSEGUEIRO(PhEnum.pH60), PIMENTAO(PhEnum.pH60), QUIVIZEIRO(PhEnum.pH60), RABANETE(PhEnum.pH60),
+    REPOLHO(PhEnum.pH60), ROSEIRA_DE_CORTE(PhEnum.pH60), RUCULA(PhEnum.pH60), SOJA(PhEnum.pH60),
+    SORGO(PhEnum.pH60), TABACO(PhEnum.pH60), TOMATE(PhEnum.pH60), TREMOCO(PhEnum.pH60),
+    TRIGO(PhEnum.pH60), TRITICALE(PhEnum.pH60), URUCUM(PhEnum.pH60), VETIVER(PhEnum.pH60),
+    VIDEIRA(PhEnum.pH60),
+    // endregion
+
+    // region --- pH 5,5 ---
+    ALFAVACA(PhEnum.pH55), AMOREIRA_PRETA(PhEnum.pH55), ARROZ_IRRIGADO(PhEnum.pH55),
+    BATATA(PhEnum.pH55), CALENDULA(PhEnum.pH55), CAMOMILA_55(PhEnum.pH55), CARDAMOMO(PhEnum.pH55),
+    CARQUEJA(PhEnum.pH55), CHA(PhEnum.pH55), CITROLENA_DE_JAVA(PhEnum.pH55), COENTRO(PhEnum.pH55),
+    CURCUMA(PhEnum.pH55), ERVA_DOCE(PhEnum.pH55), FUNCHO(PhEnum.pH55), GUACO(PhEnum.pH55),
+    MANJERICAO(PhEnum.pH55), MIRTILO(PhEnum.pH55), PALMEIRA_JUCARA(PhEnum.pH55),
+    PALMEIRA_REAL(PhEnum.pH55), PUPUNHEIRA(PhEnum.pH55), SALSA(PhEnum.pH55),
+    // endregion
+
+    // region --- sem pH de referência
+    ARRO_PRE_GERMINADO(PhEnum.noReference), ARAUCARIA(PhEnum.noReference),
+    ACACIA_NEGRA(PhEnum.noReference), BRACATINGA(PhEnum.noReference),
+    CEDRO_AUSTRALIANO(PhEnum.noReference), ERVA_MATE(PhEnum.noReference),
+    EUCALIPTO(PhEnum.noReference), PINUS(PhEnum.noReference), MANDIOCA(PhEnum.noReference),
+    PASTAGEM_NATURAL(PhEnum.noReference)
+    // endregion
+}
