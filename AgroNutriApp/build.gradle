@@ -33,17 +33,21 @@ ext {
     compileSdkVersion = 27
     targetSdkVersion = 27
     minSdkVersion = 23
-    supportLibVersion = '27.1.1'
+    appCompatLibVersion = '27.1.1'
     constraintLayoutVersion = '1.1.3'
     jUnitVersion = '4.12'
     espressoCoreVersion = '3.0.2'
     testRunnerVersion = '1.0.2'
     stepperIndicatorVersion = '1.0.7'
+    supportLibVersion = '27.1.1'
+    lifeCycleVersion = '1.1.1'
 
     commonDependency = [
             kotlin : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
-            supportLib : "com.android.support:appcompat-v7:${supportLibVersion}",
+            appCompatLib : "com.android.support:appcompat-v7:${appCompatLibVersion}",
             constraintLayout : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            supportLib : "com.android.support:support-v4:${supportLibVersion}",
+            lifeCycle : "android.arch.lifecycle:extensions:${lifeCycleVersion}"
     ]
 
     customViewDependency = [
