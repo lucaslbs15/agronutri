@@ -1,8 +1,9 @@
-package bicca.lucas.agronutriapp
+package bicca.lucas.agronutriapp.scene
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

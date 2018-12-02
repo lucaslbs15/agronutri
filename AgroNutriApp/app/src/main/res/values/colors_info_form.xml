@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="stepperIndicatorStrokeCircle">#ffc745</color>
+    <color name="stepperIndicatorCurrentCircle">#6da933</color>
+    <color name="stepperIndicatorLine">@color/stepperIndicatorStrokeCircle</color>
+    <color name="stepperIndicatorDoneLine">@color/stepperIndicatorCurrentCircle</color>
+</resources>

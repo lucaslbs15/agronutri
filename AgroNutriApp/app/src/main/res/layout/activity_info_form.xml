@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".scene.InfoFormActivity">
+
+        <com.badoualy.stepperindicator.StepperIndicator
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/stepperIndicatorMargin"
+            android:layout_marginStart="@dimen/stepperIndicatorMargin"
+            android:layout_marginEnd="@dimen/stepperIndicatorMargin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:stpi_circleColor="@color/stepperIndicatorStrokeCircle"
+            app:stpi_circleStrokeWidth="@dimen/stepperIndicatorStrokeWidth"
+            app:stpi_indicatorColor="@color/stepperIndicatorCurrentCircle"
+            app:stpi_lineColor="@color/stepperIndicatorLine"
+            app:stpi_lineDoneColor="@color/stepperIndicatorDoneLine"
+            app:stpi_lineStrokeWidth="@dimen/stepperIndicatorStrokeWidth"
+            app:stpi_showDoneIcon="true"
+            app:stpi_stepCount="@integer/step_count"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

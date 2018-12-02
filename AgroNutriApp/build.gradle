@@ -21,6 +21,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -37,11 +38,16 @@ ext {
     jUnitVersion = '4.12'
     espressoCoreVersion = '3.0.2'
     testRunnerVersion = '1.0.2'
+    stepperIndicatorVersion = '1.0.7'
 
     commonDependency = [
             kotlin : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
             supportLib : "com.android.support:appcompat-v7:${supportLibVersion}",
             constraintLayout : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+    ]
+
+    customViewDependency = [
+            stepperIndicator : "com.github.badoualy:stepper-indicator:${stepperIndicatorVersion}"
     ]
 
     testDependency = [

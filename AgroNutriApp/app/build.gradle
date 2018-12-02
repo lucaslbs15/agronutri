@@ -43,7 +43,7 @@ dependencies {
     implementation config.commonDependency.kotlin
     implementation config.commonDependency.supportLib
     implementation config.commonDependency.constraintLayout
-
+    implementation config.customViewDependency.stepperIndicator
     testImplementation config.testDependency.jUnit
     androidTestImplementation config.testDependency.testRunner
     androidTestImplementation config.testDependency.espressoCore
