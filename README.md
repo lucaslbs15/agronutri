@@ -5,3 +5,6 @@ Este projeto tem por objetivo entregar um aplicativo para a plataforma Android, 
 Materiais de apoio:
 Capítulo do livro -> https://drive.google.com/open?id=1GvfId6fR8XaxrhVfrqsa2p24UzXHe51A
 Análise do solo -> https://drive.google.com/open?id=13bveLg2s3f3_DW74AaHCgYkf58MjIA2i
+
+Libraries
+Stepper Indicator -> https://github.com/badoualy/stepper-indicator
