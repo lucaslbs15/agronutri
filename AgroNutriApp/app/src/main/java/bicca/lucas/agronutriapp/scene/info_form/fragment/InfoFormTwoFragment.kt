@@ -10,17 +10,17 @@ import android.view.ViewGroup
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormeTwoViewModel
 
-class InfoFormeTwoFragment : Fragment() {
+class InfoFormTwoFragment : Fragment() {
 
     companion object {
-        fun newInstance() = InfoFormeTwoFragment()
+        fun newInstance() = InfoFormTwoFragment()
     }
 
     private lateinit var viewModel: InfoFormeTwoViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.info_forme_two_fragment, container, false)
+        return inflater.inflate(R.layout.info_form_two_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

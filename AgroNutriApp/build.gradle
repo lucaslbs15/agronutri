@@ -47,7 +47,8 @@ ext {
             appCompatLib : "com.android.support:appcompat-v7:${appCompatLibVersion}",
             constraintLayout : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
             supportLib : "com.android.support:support-v4:${supportLibVersion}",
-            lifeCycle : "android.arch.lifecycle:extensions:${lifeCycleVersion}"
+            lifeCycle : "android.arch.lifecycle:extensions:${lifeCycleVersion}",
+            designLib: "com.android.support:design:${appCompatLibVersion}"
     ]
 
     customViewDependency = [

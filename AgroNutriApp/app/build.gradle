@@ -46,6 +46,7 @@ dependencies {
     implementation config.customViewDependency.stepperIndicator
     implementation config.commonDependency.supportLib
     implementation config.commonDependency.lifeCycle
+    implementation config.commonDependency.designLib
     testImplementation config.testDependency.jUnit
     androidTestImplementation config.testDependency.testRunner
     androidTestImplementation config.testDependency.espressoCore
