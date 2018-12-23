@@ -22,5 +22,12 @@ class InfoFormViewModel : ViewModel() {
                 lastStep.value = true
         }
     }
+
+    fun onPreviousClick() {
+        currentStep.value?.let {
+            currentStep.value = it.minus(1)
+            lastStep.value = false
+        }
+    }
     // endregion
 }

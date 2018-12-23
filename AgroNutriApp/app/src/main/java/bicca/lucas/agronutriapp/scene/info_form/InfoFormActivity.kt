@@ -55,6 +55,13 @@ class InfoFormActivity : AppCompatActivity() {
         super.onResume()
         viewModel.currentStep.value = 0
     }
+
+    override fun onBackPressed() {
+        viewModel.currentStep.value?.let {
+            if (it == 0) finish()
+            else viewModel.onPreviousClick()
+        }
+    }
     // endregion
 
     // region --- LIVE DATA ---
