@@ -1,18 +1,21 @@
 package bicca.lucas.agronutriapp.scene.info_form.viewmodel
 
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
+import android.util.Log
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.logic.InputType
 import bicca.lucas.agronutriapp.logic.PlantEnum
 
 class InfoFormOneViewModel : ViewModel() {
 
-    var inputTypeSelected: InputType = InputType.NONE
-
     // region --- ATTRIBUTES ---
+    val showInputTypeOptions = MutableLiveData<Boolean>()
+    val showPlantOptions = MutableLiveData<Boolean>()
+    var inputTypeSelected: InputType = InputType.NONE
     val plants: Array<PlantEnum> by lazy {
         PlantEnum.values()
     }
@@ -55,6 +58,7 @@ class InfoFormOneViewModel : ViewModel() {
         if (isChecked) {
             inputTypeSelected = inputType
             inputTypeId.set(inputTypeSelected.nameId)
+            showInputTypeOptions.value = false
         }
     }
     //region
