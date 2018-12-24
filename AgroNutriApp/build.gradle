@@ -48,7 +48,8 @@ ext {
             constraintLayout : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
             supportLib : "com.android.support:support-v4:${supportLibVersion}",
             lifeCycle : "android.arch.lifecycle:extensions:${lifeCycleVersion}",
-            designLib: "com.android.support:design:${appCompatLibVersion}"
+            designLib: "com.android.support:design:${appCompatLibVersion}",
+            cardViewLib: "com.android.support:cardview-v7:${appCompatLibVersion}"
     ]
 
     customViewDependency = [

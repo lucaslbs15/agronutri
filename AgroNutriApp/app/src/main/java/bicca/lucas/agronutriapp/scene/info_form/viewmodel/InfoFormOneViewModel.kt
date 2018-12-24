@@ -10,11 +10,9 @@ import bicca.lucas.agronutriapp.logic.PlantEnum
 
 class InfoFormOneViewModel : ViewModel() {
 
-    // region --- ATTRIBUTES ---
-    val inputTypeList: Array<InputType> by lazy {
-        InputType.values()
-    }
+    var inputTypeSelected: InputType = InputType.NONE
 
+    // region --- ATTRIBUTES ---
     val plants: Array<PlantEnum> by lazy {
         PlantEnum.values()
     }
@@ -25,7 +23,7 @@ class InfoFormOneViewModel : ViewModel() {
     val plantHelperTextEnabled = ObservableBoolean(false)
     val plantHelperTextId = ObservableInt(R.string.form_one_fragment_plant_edit_text_helper)
 
-    val inputType = ObservableField<String>("")
+    val inputTypeId = ObservableInt(R.string.empty_text)
     val inputTypeErrorMessageId = ObservableInt(R.string.form_one_fragment_input_type_text_error)
     val inputTypeShowErrorMessage = ObservableBoolean(false)
     val inputTypeShowHelperText = ObservableBoolean(false)
@@ -44,13 +42,20 @@ class InfoFormOneViewModel : ViewModel() {
     }
 
     private fun shouldShowInputTypeError() {
-        inputType.get().isNullOrBlank().let {
-            inputTypeShowErrorMessage.set(it)
-            if (inputTypeShowErrorMessage.get())
-                inputTypeErrorMessageId.set(R.string.form_one_fragment_input_type_text_error)
-            else
-                inputTypeErrorMessageId.set(R.string.empty_text)
-        }
+        inputTypeShowErrorMessage.set(inputTypeSelected == InputType.NONE)
+        if (inputTypeShowErrorMessage.get())
+            inputTypeErrorMessageId.set(R.string.form_one_fragment_input_type_text_error)
+        else
+            inputTypeErrorMessageId.set(R.string.empty_text)
     }
     // endregion
+
+    // region --- LISTENER ---
+    fun onInputTypeChanged(isChecked: Boolean, inputType: InputType) {
+        if (isChecked) {
+            inputTypeSelected = inputType
+            inputTypeId.set(inputTypeSelected.nameId)
+        }
+    }
+    //region
 }
