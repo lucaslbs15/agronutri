@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
-import android.util.Log
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.logic.InputType
 import bicca.lucas.agronutriapp.logic.PlantEnum
@@ -16,7 +15,7 @@ class InfoFormOneViewModel : ViewModel() {
     val showInputTypeOptions = MutableLiveData<Boolean>()
     val showPlantOptions = MutableLiveData<Boolean>()
     var inputTypeSelected: InputType = InputType.NONE
-    val plants: Array<PlantEnum> by lazy {
+    private val plants: Array<PlantEnum> by lazy {
         PlantEnum.values()
     }
 
@@ -62,4 +61,12 @@ class InfoFormOneViewModel : ViewModel() {
         }
     }
     //region
+
+    fun getPlants() : ArrayList<PlantEnum> {
+        val plants = ArrayList<PlantEnum>()
+        this.plants.forEach {
+            plants.add(it)
+        }
+        return plants
+    }
 }

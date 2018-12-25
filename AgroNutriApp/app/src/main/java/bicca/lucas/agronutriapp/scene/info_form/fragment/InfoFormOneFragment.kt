@@ -10,7 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.databinding.InfoFormOneFragmentBinding
+import bicca.lucas.agronutriapp.logic.PlantEnum
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormOneViewModel
+import bicca.lucas.agronutriapp.view.PlantAdapter
+import java.util.ArrayList
 
 class InfoFormOneFragment : Fragment() {
 
@@ -24,7 +27,7 @@ class InfoFormOneFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(InfoFormOneViewModel::class.java)
         binding.viewModel = viewModel
         binding.context = context
-
+        initPlantAdapter()
         return binding.root
     }
 
@@ -38,6 +41,14 @@ class InfoFormOneFragment : Fragment() {
         super.onResume()
         viewModel.showPlantOptions.value = false
         viewModel.showInputTypeOptions.value = false
+    }
+    // endregion
+
+    // region --- LOAD ADAPTER ---
+    private fun initPlantAdapter() {
+        val adapter = PlantAdapter(context!!, R.layout.item_plant, viewModel.getPlants())
+        binding.infoFormOneFragmentActPlant.threshold = 3
+        binding.infoFormOneFragmentActPlant.setAdapter(adapter)
     }
     // endregion
 
@@ -75,9 +86,9 @@ class InfoFormOneFragment : Fragment() {
     }
 
     private fun iniPlantOnFocusChange() {
-        binding.infoFormOneFragmentTiePlant.setOnFocusChangeListener { v, hasFocus ->
+        /*binding.infoFormOneFragmentTiePlant.setOnFocusChangeListener { v, hasFocus ->
             viewModel.showPlantOptions.value = hasFocus
-        }
+        }*/
     }
 
     private fun initInputTypeOnFocusChange() {
