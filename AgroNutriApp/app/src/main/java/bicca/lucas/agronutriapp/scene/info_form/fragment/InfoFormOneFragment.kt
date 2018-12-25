@@ -14,12 +14,14 @@ import bicca.lucas.agronutriapp.databinding.InfoFormOneFragmentBinding
 import bicca.lucas.agronutriapp.logic.PlantEnum
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormOneViewModel
 import bicca.lucas.agronutriapp.view.PlantAdapter
-import java.util.ArrayList
 
 class InfoFormOneFragment : Fragment() {
 
+    // region --- ATTRIBUTES ---
     private lateinit var binding: InfoFormOneFragmentBinding
     lateinit var viewModel: InfoFormOneViewModel
+    lateinit var adapter: PlantAdapter
+    // endregion
 
     // region --- LIFECYCLE ---
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +50,7 @@ class InfoFormOneFragment : Fragment() {
 
     // region --- LOAD ADAPTER ---
     private fun initPlantAdapter() {
-        val adapter = PlantAdapter(context!!, R.layout.item_plant, viewModel.getPlants())
+        adapter = PlantAdapter(context!!, R.layout.item_plant, viewModel.getPlants())
         binding.infoFormOneFragmentActPlant.threshold = 3
         binding.infoFormOneFragmentActPlant.setAdapter(adapter)
     }
@@ -100,14 +102,16 @@ class InfoFormOneFragment : Fragment() {
     }
 
     private fun initPlantItemClickListener() {
-        binding.infoFormOneFragmentActPlant.onItemClickListener = object: AdapterView.OnItemClickListener {
-
+        binding.infoFormOneFragmentActPlant.setOnItemClickListener(object : AdapterView.OnItemClickListener {
             override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
                 parent?.let {
-                    viewModel.plantSelected = it.getItemAtPosition(position) as PlantEnum
+                    viewModel.updatePlantSelected(it.getItemAtPosition(position) as PlantEnum)
+                    adapter.plantSelected = it.getItemAtPosition(position) as PlantEnum
+                    adapter.clear()
                 }
             }
-        }
+        })
     }
     // endregion
 

@@ -14,13 +14,14 @@ class InfoFormOneViewModel : ViewModel() {
     // region --- ATTRIBUTES ---
     val showInputTypeOptions = MutableLiveData<Boolean>()
     val showPlantOptions = MutableLiveData<Boolean>()
-    var inputTypeSelected: InputType = InputType.NONE
+    private var inputTypeSelected: InputType = InputType.NONE
     private val plants: Array<PlantEnum> by lazy {
         PlantEnum.values()
     }
 
     val plant = ObservableField<String>("")
-    var plantSelected: PlantEnum = PlantEnum.NONE
+    val plantId = ObservableInt(R.string.empty_text)
+    private var plantSelected: PlantEnum = PlantEnum.NONE
     val plantErrorMessageId = ObservableInt(R.string.form_one_fragment_plant_edit_text_error)
     val plantShowErrorMessage = ObservableBoolean(false)
     val plantHelperTextEnabled = ObservableBoolean(false)
@@ -69,5 +70,10 @@ class InfoFormOneViewModel : ViewModel() {
             plants.add(it)
         }
         return plants
+    }
+
+    fun updatePlantSelected(plantEnum: PlantEnum) {
+        plantSelected = plantEnum
+        plantId.set(plantSelected.stringId)
     }
 }

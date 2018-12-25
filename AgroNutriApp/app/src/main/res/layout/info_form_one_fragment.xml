@@ -39,7 +39,7 @@
                 android:id="@+id/info_form_one_fragment_act_plant"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={viewModel.plant}"/>
+                android:text="@{context.getString(viewModel.plantId)}"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout

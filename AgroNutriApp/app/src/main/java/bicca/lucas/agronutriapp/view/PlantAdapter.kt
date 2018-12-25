@@ -2,6 +2,7 @@ package bicca.lucas.agronutriapp.view
 
 import android.app.Activity
 import android.content.Context
+import android.support.v7.widget.AppCompatRadioButton
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ class PlantAdapter(context: Context, val resource: Int, val items: ArrayList<Pla
     // region --- ATTRIBUTES ---
     var tempItems: ArrayList<PlantEnum> = ArrayList()
     var suggestions: ArrayList<PlantEnum> = ArrayList()
+    var plantSelected: PlantEnum = PlantEnum.NONE
     // endregion
 
     // region --- SETUP ---
@@ -38,6 +40,8 @@ class PlantAdapter(context: Context, val resource: Int, val items: ArrayList<Pla
         view?.let {
             val text: TextView = it.findViewById(R.id.item_plant_text)
             text.setText(plant.stringId)
+            val radio: AppCompatRadioButton = it.findViewById(R.id.item_plant_radio)
+            radio.isChecked = plant == plantSelected
         }
 
         return view!!
