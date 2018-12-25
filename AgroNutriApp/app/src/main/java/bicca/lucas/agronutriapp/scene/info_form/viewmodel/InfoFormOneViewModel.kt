@@ -20,6 +20,7 @@ class InfoFormOneViewModel : ViewModel() {
     }
 
     val plant = ObservableField<String>("")
+    var plantSelected: PlantEnum = PlantEnum.NONE
     val plantErrorMessageId = ObservableInt(R.string.form_one_fragment_plant_edit_text_error)
     val plantShowErrorMessage = ObservableBoolean(false)
     val plantHelperTextEnabled = ObservableBoolean(false)

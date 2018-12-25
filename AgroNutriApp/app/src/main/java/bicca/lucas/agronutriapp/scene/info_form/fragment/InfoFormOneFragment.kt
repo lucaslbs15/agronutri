@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.databinding.InfoFormOneFragmentBinding
 import bicca.lucas.agronutriapp.logic.PlantEnum
@@ -28,6 +29,7 @@ class InfoFormOneFragment : Fragment() {
         binding.viewModel = viewModel
         binding.context = context
         initPlantAdapter()
+        initPlantItemClickListener()
         return binding.root
     }
 
@@ -94,6 +96,17 @@ class InfoFormOneFragment : Fragment() {
     private fun initInputTypeOnFocusChange() {
         binding.infoFormOneFragmentTieInputType.setOnFocusChangeListener { v, hasFocus ->
             viewModel.showInputTypeOptions.value = hasFocus
+        }
+    }
+
+    private fun initPlantItemClickListener() {
+        binding.infoFormOneFragmentActPlant.onItemClickListener = object: AdapterView.OnItemClickListener {
+
+            override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                parent?.let {
+                    viewModel.plantSelected = it.getItemAtPosition(position) as PlantEnum
+                }
+            }
         }
     }
     // endregion

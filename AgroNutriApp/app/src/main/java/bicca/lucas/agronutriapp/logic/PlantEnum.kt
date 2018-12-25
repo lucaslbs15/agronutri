@@ -4,6 +4,8 @@ import bicca.lucas.agronutriapp.R
 
 enum class PlantEnum(val phEnum: PhEnum, val stringId: Int) {
 
+    NONE(PhEnum.noReference, R.string.empty_text),
+
     // region --- pH 6,5 ---
     ALFAFA(PhEnum.pH65, R.string.alfafa), ASPARGO(PhEnum.pH65, R.string.aspargo),
     MACIEIRA(PhEnum.pH65, R.string.macieira), OLIVEIRA(PhEnum.pH65, R.string.oliveira),
