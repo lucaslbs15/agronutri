@@ -8,6 +8,8 @@ class InfoFormViewModel : ViewModel() {
     val currentStep = MutableLiveData<Int>()
     var totalSteps = 0
     val lastStep = MutableLiveData<Boolean>()
+    var shouldShowErrors = false
+    val shouldValidateToGoToNextScreen = MutableLiveData<Boolean>()
 
     init {
         currentStep.value = 0
@@ -15,11 +17,17 @@ class InfoFormViewModel : ViewModel() {
 
     // region --- LISTENERS ---
     fun onNextClick() {
-        currentStep.value?.let {
-            if (it < (totalSteps - 1))
-                currentStep.value = it.plus(1)
-            else
-                lastStep.value = true
+        shouldValidateToGoToNextScreen.value = true
+    }
+
+    fun goToNextScreen() {
+        if (!shouldShowErrors) {
+            currentStep.value?.let {
+                if (it < (totalSteps - 1))
+                    currentStep.value = it.plus(1)
+                else
+                    lastStep.value = true
+            }
         }
     }
 

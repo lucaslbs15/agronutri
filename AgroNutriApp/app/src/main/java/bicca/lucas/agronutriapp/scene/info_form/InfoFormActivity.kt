@@ -22,6 +22,7 @@ class InfoFormActivity : AppCompatActivity() {
     // region --- ATTRIBUTES ---
     private lateinit var binding: ActivityInfoFormBinding
     private lateinit var viewModel: InfoFormViewModel
+    private lateinit var infoFormOneFragment: InfoFormOneFragment
     private val handler: Handler = Handler()
     private val goToResult = object: Runnable {
         override fun run() {
@@ -37,8 +38,10 @@ class InfoFormActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(InfoFormViewModel::class.java)
         binding.viewModel = viewModel
 
+        infoFormOneFragment = InfoFormOneFragment.newInstance()
+
         val fragments = arrayOf(
-                InfoFormOneFragment.newInstance(), InfoFormTwoFragment.newInstance(),
+                infoFormOneFragment, InfoFormTwoFragment.newInstance(),
                 InfoFormThreeFragment.newInstance(), InfoFormFourFragment.newInstance()
         )
         viewModel.totalSteps = fragments.size
@@ -68,6 +71,7 @@ class InfoFormActivity : AppCompatActivity() {
     private fun initLiveData() {
         initCurrentStepLiveData()
         initLastStepLiveData()
+        initGoToNextScreen()
     }
 
     private fun initCurrentStepLiveData() {
@@ -87,6 +91,19 @@ class InfoFormActivity : AppCompatActivity() {
             }
         }
         viewModel.lastStep.observe(this, lastStepObserver)
+    }
+
+    private fun initGoToNextScreen() {
+        val goToNextScreen = Observer<Boolean> { result ->
+            if (result != null && result) {
+                when (viewModel.currentStep.value) {
+                    0 -> viewModel.shouldShowErrors = infoFormOneFragment.viewModel.shouldShowErrors()
+                }
+
+                viewModel.goToNextScreen()
+            }
+        }
+        viewModel.shouldValidateToGoToNextScreen.observe(this, goToNextScreen)
     }
     // endregion
 

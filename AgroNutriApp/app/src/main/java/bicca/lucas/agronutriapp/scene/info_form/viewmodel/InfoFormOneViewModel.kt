@@ -2,6 +2,7 @@ package bicca.lucas.agronutriapp.scene.info_form.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.databinding.InverseMethod
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
@@ -36,17 +37,17 @@ class InfoFormOneViewModel : ViewModel() {
 
     // region --- VALIDATION ---
     fun shouldShowErrors() : Boolean {
-        return shouldShowPlantError() || shouldShowInputTypeError()
+        val shouldShowPlantError = shouldShowPlantError()
+        val shouldShowInputTypeError = shouldShowInputTypeError()
+        return shouldShowPlantError || shouldShowInputTypeError
     }
 
     private fun shouldShowPlantError() : Boolean {
-        plant.get().isNullOrBlank().let {
-            plantShowErrorMessage.set(it)
-            if (plantShowErrorMessage.get())
-                plantErrorMessageId.set(R.string.form_one_fragment_plant_edit_text_error)
-            else
-                plantErrorMessageId.set(R.string.empty_text)
-        }
+        plantShowErrorMessage.set(plantSelected == PlantEnum.NONE)
+        if (plantShowErrorMessage.get())
+            plantErrorMessageId.set(R.string.form_one_fragment_plant_edit_text_error)
+        else
+            plantErrorMessageId.set(R.string.empty_text)
         return plantShowErrorMessage.get()
     }
 
@@ -82,4 +83,10 @@ class InfoFormOneViewModel : ViewModel() {
         plantSelected = plantEnum
         plantId.set(plantSelected.stringId)
     }
+
+    @InverseMethod("")
+    fun getPlantErrorMessageId() = plantErrorMessageId.get()
+
+    @InverseMethod("")
+    fun getInputTypeErrorMessageId() = inputTypeErrorMessageId.get()
 }
