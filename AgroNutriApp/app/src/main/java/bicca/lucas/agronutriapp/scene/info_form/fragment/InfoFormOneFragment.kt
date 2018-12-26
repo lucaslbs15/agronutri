@@ -8,14 +8,14 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.databinding.InfoFormOneFragmentBinding
 import bicca.lucas.agronutriapp.logic.PlantEnum
+import bicca.lucas.agronutriapp.scene.info_form.OnPlantItemClickListener
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormOneViewModel
 import bicca.lucas.agronutriapp.view.PlantAdapter
 
-class InfoFormOneFragment : Fragment() {
+class InfoFormOneFragment : Fragment(), OnPlantItemClickListener {
 
     // region --- ATTRIBUTES ---
     private lateinit var binding: InfoFormOneFragmentBinding
@@ -31,7 +31,6 @@ class InfoFormOneFragment : Fragment() {
         binding.viewModel = viewModel
         binding.context = context
         initPlantAdapter()
-        initPlantItemClickListener()
         return binding.root
     }
 
@@ -50,7 +49,7 @@ class InfoFormOneFragment : Fragment() {
 
     // region --- LOAD ADAPTER ---
     private fun initPlantAdapter() {
-        adapter = PlantAdapter(context!!, R.layout.item_plant, viewModel.getPlants())
+        adapter = PlantAdapter(context!!, this, R.layout.item_plant, viewModel.getPlants())
         binding.infoFormOneFragmentActPlant.threshold = 3
         binding.infoFormOneFragmentActPlant.setAdapter(adapter)
     }
@@ -101,17 +100,11 @@ class InfoFormOneFragment : Fragment() {
         }
     }
 
-    private fun initPlantItemClickListener() {
-        binding.infoFormOneFragmentActPlant.setOnItemClickListener(object : AdapterView.OnItemClickListener {
-            override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-                parent?.let {
-                    viewModel.updatePlantSelected(it.getItemAtPosition(position) as PlantEnum)
-                    adapter.plantSelected = it.getItemAtPosition(position) as PlantEnum
-                    adapter.clear()
-                }
-            }
-        })
+    override fun onPlantClick(plantEnum: PlantEnum) {
+        viewModel.updatePlantSelected(plantEnum)
+        adapter.plantSelected = plantEnum
+        binding.infoFormOneFragmentActPlant.dismissDropDown()
+        binding.infoFormOneFragmentRoot.requestFocus()
     }
     // endregion
 

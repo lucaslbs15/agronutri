@@ -6,7 +6,8 @@
     android:orientation="horizontal"
     xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center_vertical"
-    android:padding="@dimen/item_plant_padding">
+    android:padding="@dimen/item_plant_padding"
+    android:id="@+id/item_plant_root">
 
     <android.support.v7.widget.AppCompatRadioButton
         android:id="@+id/item_plant_radio"

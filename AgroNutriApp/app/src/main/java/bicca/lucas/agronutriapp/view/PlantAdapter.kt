@@ -11,8 +11,10 @@ import android.widget.Filter
 import android.widget.TextView
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.logic.PlantEnum
+import bicca.lucas.agronutriapp.scene.info_form.OnPlantItemClickListener
+import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormOneFragment
 
-class PlantAdapter(context: Context, val resource: Int, val items: ArrayList<PlantEnum>) : ArrayAdapter<PlantEnum>(context, resource, items) {
+class PlantAdapter(context: Context, val listener: OnPlantItemClickListener, val resource: Int, val items: ArrayList<PlantEnum>) : ArrayAdapter<PlantEnum>(context, resource, items) {
 
     // region --- ATTRIBUTES ---
     var tempItems: ArrayList<PlantEnum> = ArrayList()
@@ -42,6 +44,12 @@ class PlantAdapter(context: Context, val resource: Int, val items: ArrayList<Pla
             text.setText(plant.stringId)
             val radio: AppCompatRadioButton = it.findViewById(R.id.item_plant_radio)
             radio.isChecked = plant == plantSelected
+            val root = it.findViewById(R.id.item_plant_root) as View
+            root.setOnClickListener(object : View.OnClickListener {
+                override fun onClick(v: View?) {
+                    listener.onPlantClick(plant)
+                }
+            })
         }
 
         return view!!

@@ -35,7 +35,11 @@ class InfoFormOneViewModel : ViewModel() {
     // endregion
 
     // region --- VALIDATION ---
-    private fun shouldShowPlantError() {
+    fun shouldShowErrors() : Boolean {
+        return shouldShowPlantError() || shouldShowInputTypeError()
+    }
+
+    private fun shouldShowPlantError() : Boolean {
         plant.get().isNullOrBlank().let {
             plantShowErrorMessage.set(it)
             if (plantShowErrorMessage.get())
@@ -43,14 +47,16 @@ class InfoFormOneViewModel : ViewModel() {
             else
                 plantErrorMessageId.set(R.string.empty_text)
         }
+        return plantShowErrorMessage.get()
     }
 
-    private fun shouldShowInputTypeError() {
+    private fun shouldShowInputTypeError() : Boolean {
         inputTypeShowErrorMessage.set(inputTypeSelected == InputType.NONE)
         if (inputTypeShowErrorMessage.get())
             inputTypeErrorMessageId.set(R.string.form_one_fragment_input_type_text_error)
         else
             inputTypeErrorMessageId.set(R.string.empty_text)
+        return inputTypeShowErrorMessage.get()
     }
     // endregion
 
