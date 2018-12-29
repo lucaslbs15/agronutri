@@ -1,8 +1,8 @@
 package bicca.lucas.agronutriapp.scene.info_form.viewmodel
 
+import android.app.Application
+import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.databinding.InverseMethod
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
@@ -10,7 +10,7 @@ import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.logic.InputType
 import bicca.lucas.agronutriapp.logic.PlantEnum
 
-class InfoFormOneViewModel : ViewModel() {
+class InfoFormOneViewModel(application: Application) : AndroidViewModel(application) {
 
     // region --- ATTRIBUTES ---
     val showInputTypeOptions = MutableLiveData<Boolean>()
@@ -23,13 +23,13 @@ class InfoFormOneViewModel : ViewModel() {
     val plant = ObservableField<String>("")
     val plantId = ObservableInt(R.string.empty_text)
     private var plantSelected: PlantEnum = PlantEnum.NONE
-    val plantErrorMessageId = ObservableInt(R.string.form_one_fragment_plant_edit_text_error)
+    val plantErrorMessage = ObservableField<String>(" ")
     val plantShowErrorMessage = ObservableBoolean(false)
     val plantHelperTextEnabled = ObservableBoolean(false)
     val plantHelperTextId = ObservableInt(R.string.form_one_fragment_plant_edit_text_helper)
 
     val inputTypeId = ObservableInt(R.string.empty_text)
-    val inputTypeErrorMessageId = ObservableInt(R.string.form_one_fragment_input_type_text_error)
+    val inputTypeErrorMessage = ObservableField<String>("")
     val inputTypeShowErrorMessage = ObservableBoolean(false)
     val inputTypeShowHelperText = ObservableBoolean(false)
     val inputTypeHelperTextId = ObservableInt(R.string.form_one_fragment_input_type_edit_text_helper)
@@ -45,18 +45,18 @@ class InfoFormOneViewModel : ViewModel() {
     private fun shouldShowPlantError() : Boolean {
         plantShowErrorMessage.set(plantSelected == PlantEnum.NONE)
         if (plantShowErrorMessage.get())
-            plantErrorMessageId.set(R.string.form_one_fragment_plant_edit_text_error)
+            plantErrorMessage.set(getApplication<Application>().getString(R.string.form_one_fragment_plant_edit_text_error))
         else
-            plantErrorMessageId.set(R.string.empty_text)
+            plantErrorMessage.set(getApplication<Application>().getString(R.string.empty_text))
         return plantShowErrorMessage.get()
     }
 
     private fun shouldShowInputTypeError() : Boolean {
         inputTypeShowErrorMessage.set(inputTypeSelected == InputType.NONE)
         if (inputTypeShowErrorMessage.get())
-            inputTypeErrorMessageId.set(R.string.form_one_fragment_input_type_text_error)
+            inputTypeErrorMessage.set(getApplication<Application>().getString(R.string.form_one_fragment_input_type_text_error))
         else
-            inputTypeErrorMessageId.set(R.string.empty_text)
+            inputTypeErrorMessage.set(getApplication<Application>().getString(R.string.empty_text))
         return inputTypeShowErrorMessage.get()
     }
     // endregion
@@ -82,11 +82,6 @@ class InfoFormOneViewModel : ViewModel() {
     fun updatePlantSelected(plantEnum: PlantEnum) {
         plantSelected = plantEnum
         plantId.set(plantSelected.stringId)
+        showPlantOptions.value = false
     }
-
-    @InverseMethod("")
-    fun getPlantErrorMessageId() = plantErrorMessageId.get()
-
-    @InverseMethod("")
-    fun getInputTypeErrorMessageId() = inputTypeErrorMessageId.get()
 }

@@ -13,6 +13,7 @@ import bicca.lucas.agronutriapp.databinding.InfoFormOneFragmentBinding
 import bicca.lucas.agronutriapp.logic.PlantEnum
 import bicca.lucas.agronutriapp.scene.info_form.OnPlantItemClickListener
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormOneViewModel
+import bicca.lucas.agronutriapp.utils.KeyboardUtils
 import bicca.lucas.agronutriapp.view.PlantAdapter
 
 class InfoFormOneFragment : Fragment(), OnPlantItemClickListener {
@@ -64,8 +65,7 @@ class InfoFormOneFragment : Fragment(), OnPlantItemClickListener {
     private fun initShowPlantLiveData() {
         val plantObserver = Observer<Boolean> { result ->
             if (result != null) {
-                //TODO setVisibility
-
+                if (!result) KeyboardUtils.hideKeyboard(context!!, binding.root)
             }
         }
         viewModel.showPlantOptions.observe(this, plantObserver)
