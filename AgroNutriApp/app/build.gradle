@@ -41,9 +41,13 @@ dokka {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation config.commonDependency.kotlin
-    implementation config.commonDependency.supportLib
+    implementation config.commonDependency.appCompatLib
     implementation config.commonDependency.constraintLayout
-
+    implementation config.customViewDependency.stepperIndicator
+    implementation config.commonDependency.supportLib
+    implementation config.commonDependency.lifeCycle
+    implementation config.commonDependency.designLib
+    implementation config.commonDependency.cardViewLib
     testImplementation config.testDependency.jUnit
     androidTestImplementation config.testDependency.testRunner
     androidTestImplementation config.testDependency.espressoCore

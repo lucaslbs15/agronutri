@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="stepperIndicatorStrokeWidth">4dp</dimen>
+    <dimen name="stepperIndicatorMargin">16dp</dimen>
+    <dimen name="activityInfoFormPagerVerticalMargin">16dp</dimen>
+    <dimen name="activityInfoFormPagerHorizontalMargin">8dp</dimen>
+    <dimen name="item_plant_text_size">18sp</dimen>
+    <dimen name="item_plant_padding">16dp</dimen>
+    <dimen name="item_plant_height">60dp</dimen>
+    <dimen name="info_form_one_fragment_options_padding">16dp</dimen>
+    <dimen name="info_form_one_fragment_options_corner_radius">16dp</dimen>
+    <dimen name="info_form_one_fragment_options_elevation">8dp</dimen>
+    <dimen name="info_form_one_fragment_margin">16dp</dimen>
+    <dimen name="info_form_one_fragment_options_horizontal_margin">8dp</dimen>
+</resources>

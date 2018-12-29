@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">AgroNutriApp</string>
+    <string name="app_name">Agro Nutri</string>
+    <string name="form_one_fragment_plant">Cultura</string>
+    <string name="form_one_fragment_plant_edit_text_helper">Escolha uma cultura</string>
+    <string name="form_one_fragment_plant_edit_text_error">Cultura deve ser preenchida</string>
+
+    <string name="form_one_fragment_input_type">Aplicação</string>
+    <string name="form_one_fragment_input_type_edit_text_helper">Escolha uma aplicação</string>
+    <string name="form_one_fragment_input_type_text_error">Aplicação deve ser preenchida</string>
+
+    <string name="form_one_fragment_input_type_none">Nenhum</string>
+    <string name="form_one_fragment_input_type_fertilizing">Adubação</string>
+    <string name="form_one_fragment_input_type_liming">Calagem</string>
+    <string name="empty_text"></string>
 </resources>
