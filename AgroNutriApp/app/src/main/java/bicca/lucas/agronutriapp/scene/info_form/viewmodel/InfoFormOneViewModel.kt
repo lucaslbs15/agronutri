@@ -82,6 +82,5 @@ class InfoFormOneViewModel(application: Application) : AndroidViewModel(applicat
     fun updatePlantSelected(plantEnum: PlantEnum) {
         plantSelected = plantEnum
         plantId.set(plantSelected.stringId)
-        showPlantOptions.value = false
     }
 }

@@ -89,9 +89,9 @@ class InfoFormOneFragment : Fragment(), OnPlantItemClickListener {
     }
 
     private fun iniPlantOnFocusChange() {
-        /*binding.infoFormOneFragmentTiePlant.setOnFocusChangeListener { v, hasFocus ->
+        binding.infoFormOneFragmentActPlant.setOnFocusChangeListener { v, hasFocus ->
             viewModel.showPlantOptions.value = hasFocus
-        }*/
+        }
     }
 
     private fun initInputTypeOnFocusChange() {
