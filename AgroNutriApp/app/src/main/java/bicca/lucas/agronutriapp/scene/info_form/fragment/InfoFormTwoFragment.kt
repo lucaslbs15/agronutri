@@ -22,20 +22,21 @@ class InfoFormTwoFragment : Fragment() {
         fun newInstance() = InfoFormTwoFragment()
     }
 
-    private lateinit var viewModel: InfoFormTwoViewModel
+    lateinit var viewModel: InfoFormTwoViewModel
     // endregion
 
     // region --- LIFECYCLE ---
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.info_form_two_fragment, container, false)
+        viewModel = ViewModelProviders.of(this).get(InfoFormTwoViewModel::class.java)
+        binding.viewModel = viewModel
         setupWatchers()
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(InfoFormTwoViewModel::class.java)
     }
     // endregion
 

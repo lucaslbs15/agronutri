@@ -23,6 +23,7 @@ class InfoFormActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInfoFormBinding
     private lateinit var viewModel: InfoFormViewModel
     private lateinit var infoFormOneFragment: InfoFormOneFragment
+    private lateinit var infoFormTwoFragment: InfoFormTwoFragment
     private val handler: Handler = Handler()
     private val goToResult = object: Runnable {
         override fun run() {
@@ -39,9 +40,10 @@ class InfoFormActivity : AppCompatActivity() {
         binding.viewModel = viewModel
 
         infoFormOneFragment = InfoFormOneFragment.newInstance()
+        infoFormTwoFragment = InfoFormTwoFragment.newInstance()
 
         val fragments = arrayOf(
-                infoFormOneFragment, InfoFormTwoFragment.newInstance(),
+                infoFormOneFragment, infoFormTwoFragment,
                 InfoFormThreeFragment.newInstance(), InfoFormFourFragment.newInstance()
         )
         viewModel.totalSteps = fragments.size
@@ -98,6 +100,7 @@ class InfoFormActivity : AppCompatActivity() {
             if (result != null && result) {
                 when (viewModel.currentStep.value) {
                     0 -> viewModel.shouldShowErrors = infoFormOneFragment.viewModel.shouldShowErrors()
+                    1 -> viewModel.shouldShowErrors = infoFormTwoFragment.viewModel.shouldShowErros()
                 }
 
                 viewModel.goToNextScreen()

@@ -22,6 +22,7 @@
     <string name="form_two_fragment_al">Al</string>
     <string name="form_two_fragment_h_al">H + Al</string>
     <string name="form_two_fragment_ctc">CTC efetiva</string>
+    <string name="form_two_fragment_default_error_message">Campo obrigatório</string>
 
     <!-- FORM THREE -->
     <string name="form_three_fragment_al">Al</string>
