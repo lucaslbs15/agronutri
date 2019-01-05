@@ -12,4 +12,5 @@
     <dimen name="info_form_one_fragment_options_elevation">8dp</dimen>
     <dimen name="info_form_one_fragment_margin">16dp</dimen>
     <dimen name="info_form_one_fragment_options_horizontal_margin">8dp</dimen>
+    <dimen name="info_form_two_fragment_margin">16dp</dimen>
 </resources>

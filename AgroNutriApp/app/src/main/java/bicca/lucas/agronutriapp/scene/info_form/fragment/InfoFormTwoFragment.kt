@@ -15,6 +15,7 @@ import br.com.concrete.canarinho.watcher.ValorMonetarioWatcher
 
 class InfoFormTwoFragment : Fragment() {
 
+    // region --- ATTRIBUTES ---
     private lateinit var binding: InfoFormTwoFragmentBinding
 
     companion object {
@@ -22,18 +23,30 @@ class InfoFormTwoFragment : Fragment() {
     }
 
     private lateinit var viewModel: InfoFormTwoViewModel
+    // endregion
 
+    // region --- LIFECYCLE ---
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.info_form_two_fragment, container, false)
-        binding.infoFormTwoFragmentTesteWatcher.addTextChangedListener(ValorMonetarioWatcher())
+        setupWatchers()
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(InfoFormTwoViewModel::class.java)
-        // TODO: Use the ViewModel
+    }
+    // endregion
+
+    private fun setupWatchers() {
+        binding.infoFormTwoFragmentTiePhWater.addTextChangedListener(ValorMonetarioWatcher())
+        //info_form_two_fragment_tie_ctc
+        binding.infoFormTwoFragmentTieCa.addTextChangedListener(ValorMonetarioWatcher())
+        binding.infoFormTwoFragmentTieMg.addTextChangedListener(ValorMonetarioWatcher())
+        binding.infoFormTwoFragmentTieAl.addTextChangedListener(ValorMonetarioWatcher())
+        binding.infoFormTwoFragmentTieHAl.addTextChangedListener(ValorMonetarioWatcher())
+        binding.infoFormTwoFragmentTieCtc.addTextChangedListener(ValorMonetarioWatcher())
     }
 
 }
