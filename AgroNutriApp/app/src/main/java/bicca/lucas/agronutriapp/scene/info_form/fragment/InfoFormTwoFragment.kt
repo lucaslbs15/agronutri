@@ -34,15 +34,10 @@ class InfoFormTwoFragment : Fragment() {
         setupWatchers()
         return binding.root
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
     // endregion
 
     private fun setupWatchers() {
         binding.infoFormTwoFragmentTiePhWater.addTextChangedListener(ValorMonetarioWatcher())
-        //info_form_two_fragment_tie_ctc
         binding.infoFormTwoFragmentTieCa.addTextChangedListener(ValorMonetarioWatcher())
         binding.infoFormTwoFragmentTieMg.addTextChangedListener(ValorMonetarioWatcher())
         binding.infoFormTwoFragmentTieAl.addTextChangedListener(ValorMonetarioWatcher())

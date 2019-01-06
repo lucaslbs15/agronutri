@@ -24,6 +24,8 @@ class InfoFormActivity : AppCompatActivity() {
     private lateinit var viewModel: InfoFormViewModel
     private lateinit var infoFormOneFragment: InfoFormOneFragment
     private lateinit var infoFormTwoFragment: InfoFormTwoFragment
+    private lateinit var infoFormThreeFragment: InfoFormThreeFragment
+    private lateinit var infoFormFourFragment: InfoFormFourFragment
     private val handler: Handler = Handler()
     private val goToResult = object: Runnable {
         override fun run() {
@@ -41,10 +43,12 @@ class InfoFormActivity : AppCompatActivity() {
 
         infoFormOneFragment = InfoFormOneFragment.newInstance()
         infoFormTwoFragment = InfoFormTwoFragment.newInstance()
+        infoFormThreeFragment = InfoFormThreeFragment.newInstance()
+        infoFormFourFragment = InfoFormFourFragment.newInstance()
 
         val fragments = arrayOf(
                 infoFormOneFragment, infoFormTwoFragment,
-                InfoFormThreeFragment.newInstance(), InfoFormFourFragment.newInstance()
+                infoFormThreeFragment, infoFormFourFragment
         )
         viewModel.totalSteps = fragments.size
         val adpter = CustomPagerAdapter(supportFragmentManager, fragments)
@@ -101,6 +105,7 @@ class InfoFormActivity : AppCompatActivity() {
                 when (viewModel.currentStep.value) {
                     0 -> viewModel.shouldShowErrors = infoFormOneFragment.viewModel.shouldShowErrors()
                     1 -> viewModel.shouldShowErrors = infoFormTwoFragment.viewModel.shouldShowErros()
+                    2 -> viewModel.shouldShowErrors = infoFormThreeFragment.viewModel.shouldShowErrors()
                 }
 
                 viewModel.goToNextScreen()

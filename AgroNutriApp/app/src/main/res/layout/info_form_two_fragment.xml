@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.phWater}"/>
+                    android:text="@={viewModel.phWater}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.ca}"/>
+                    android:text="@={viewModel.ca}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.mg}"/>
+                    android:text="@={viewModel.mg}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.al}"/>
+                    android:text="@={viewModel.al}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -130,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.hAl}"/>
+                    android:text="@={viewModel.hAl}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -153,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.ctcEfetiva}"/>
+                    android:text="@={viewModel.ctcEfetiva}"/>
             </android.support.design.widget.TextInputLayout>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
