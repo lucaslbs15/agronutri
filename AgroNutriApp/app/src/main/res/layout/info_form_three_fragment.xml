@@ -1,14 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".scene.info_form.fragment.InfoFormThreeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <data>
+        <variable
+            name="viewModel"
+            type="bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormThreeViewModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Page  03"/>
+        tools:context=".scene.info_form.fragment.InfoFormThreeFragment">
+        <!-- Al; Bases; Índice SMP -->
 
-</FrameLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/info_form_three_fragment_til_al"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/info_form_three_fragment_margin"
+            android:layout_marginTop="@dimen/info_form_three_fragment_margin"
+            android:layout_marginEnd="@dimen/info_form_three_fragment_margin"
+            android:hint="@string/form_three_fragment_al"
+            app:error="@{viewModel.alErrorMessage}"
+            app:errorEnabled="@{viewModel.alShowErrorMessage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/info_form_three_fragment_tie_al"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/number_digits"
+                android:inputType="number"
+                android:text="@={viewModel.al}"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/info_form_three_fragment_til_bases"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/info_form_three_fragment_margin"
+            android:layout_marginTop="@dimen/info_form_three_fragment_margin"
+            android:layout_marginEnd="@dimen/info_form_three_fragment_margin"
+            android:hint="@string/form_three_fragment_bases"
+            app:error="@{viewModel.basesErrorMessage}"
+            app:errorEnabled="@{viewModel.basesShowErrorMessage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_form_three_fragment_til_al">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/info_form_three_fragment_tie_bases"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/number_digits"
+                android:inputType="number"
+                android:text="@={viewModel.bases}"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/info_form_three_fragment_margin"
+            android:layout_marginTop="@dimen/info_form_three_fragment_margin"
+            android:layout_marginEnd="@dimen/info_form_three_fragment_margin"
+            android:hint="@string/form_three_fragment_index_smp"
+            app:error="@{viewModel.indexSMPErrorMessage}"
+            app:errorEnabled="@{viewModel.indexSMPShowErrorMessage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_form_three_fragment_til_bases">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/info_form_three_fragment_tie_index_smap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/number_digits"
+                android:inputType="number"
+                android:text="@={viewModel.indexSMP}"/>
+        </android.support.design.widget.TextInputLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

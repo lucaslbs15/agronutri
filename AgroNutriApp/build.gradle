@@ -41,6 +41,7 @@ ext {
     stepperIndicatorVersion = '1.0.7'
     supportLibVersion = '27.1.1'
     lifeCycleVersion = '1.1.1'
+    canarinhoVersion = '2.0.1'
 
     commonDependency = [
             kotlin : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
@@ -53,7 +54,8 @@ ext {
     ]
 
     customViewDependency = [
-            stepperIndicator : "com.github.badoualy:stepper-indicator:${stepperIndicatorVersion}"
+            stepperIndicator : "com.github.badoualy:stepper-indicator:${stepperIndicatorVersion}",
+            canarinho: "br.com.concrete:canarinho:${canarinhoVersion}"
     ]
 
     testDependency = [

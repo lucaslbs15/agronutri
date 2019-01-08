@@ -43,11 +43,12 @@ dependencies {
     implementation config.commonDependency.kotlin
     implementation config.commonDependency.appCompatLib
     implementation config.commonDependency.constraintLayout
-    implementation config.customViewDependency.stepperIndicator
     implementation config.commonDependency.supportLib
     implementation config.commonDependency.lifeCycle
     implementation config.commonDependency.designLib
     implementation config.commonDependency.cardViewLib
+    implementation config.customViewDependency.stepperIndicator
+    implementation config.customViewDependency.canarinho
     testImplementation config.testDependency.jUnit
     androidTestImplementation config.testDependency.testRunner
     androidTestImplementation config.testDependency.espressoCore
