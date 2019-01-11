@@ -20,7 +20,7 @@ class InfoFormFourFragment : Fragment() {
         fun newInstance() = InfoFormFourFragment()
     }
 
-    private lateinit var viewModel: InfoFormFourViewModel
+    lateinit var viewModel: InfoFormFourViewModel
     private lateinit var binding: InfoFormFourFragmentBinding
     // endregion
 
@@ -29,6 +29,7 @@ class InfoFormFourFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(InfoFormFourViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.info_form_four_fragment, container, false)
         setupWatchers()
+        binding.viewModel = viewModel
         return binding.root
     }
 
@@ -40,6 +41,8 @@ class InfoFormFourFragment : Fragment() {
         binding.infoFormFourFragmentTieTexture.addTextChangedListener(ValorMonetarioWatcher())
         binding.infoFormFourFragmentTiePMehlich.addTextChangedListener(ValorMonetarioWatcher())
         binding.infoFormFourFragmentTieCtc.addTextChangedListener(ValorMonetarioWatcher())
+        binding.infoFormFourFragmentTieS.addTextChangedListener(ValorMonetarioWatcher())
+        binding.infoFormFourFragmentTieKMg.addTextChangedListener(ValorMonetarioWatcher())
     }
     // endregion
 

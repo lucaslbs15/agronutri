@@ -106,8 +106,8 @@ class InfoFormActivity : AppCompatActivity() {
                     0 -> viewModel.shouldShowErrors = infoFormOneFragment.viewModel.shouldShowErrors()
                     1 -> viewModel.shouldShowErrors = infoFormTwoFragment.viewModel.shouldShowErros()
                     2 -> viewModel.shouldShowErrors = infoFormThreeFragment.viewModel.shouldShowErrors()
+                    3 -> viewModel.shouldShowErrors = infoFormFourFragment.viewModel.shouldShowErrors()
                 }
-
                 viewModel.goToNextScreen()
             }
         }
