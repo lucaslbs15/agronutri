@@ -15,14 +15,14 @@ class InfoFormOneViewModel(application: Application) : AndroidViewModel(applicat
     // region --- ATTRIBUTES ---
     val showInputTypeOptions = MutableLiveData<Boolean>()
     val showPlantOptions = MutableLiveData<Boolean>()
-    private var inputTypeSelected: InputType = InputType.NONE
+    var inputTypeSelected: InputType = InputType.NONE
     private val plants: Array<PlantEnum> by lazy {
         PlantEnum.values()
     }
 
     val plant = ObservableField<String>("")
     val plantId = ObservableInt(R.string.empty_text)
-    private var plantSelected: PlantEnum = PlantEnum.NONE
+    var plantSelected: PlantEnum = PlantEnum.NONE
     val plantErrorMessage = ObservableField<String>(" ")
     val plantShowErrorMessage = ObservableBoolean(false)
     val plantHelperTextEnabled = ObservableBoolean(false)

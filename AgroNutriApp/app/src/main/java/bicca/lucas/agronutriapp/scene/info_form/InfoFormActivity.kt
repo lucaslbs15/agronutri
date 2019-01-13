@@ -15,6 +15,7 @@ import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormOneFragment
 import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormThreeFragment
 import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormTwoFragment
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormViewModel
+import bicca.lucas.agronutriapp.utils.toFormattedDouble
 import bicca.lucas.agronutriapp.view.CustomPagerAdapter
 
 class InfoFormActivity : AppCompatActivity() {
@@ -133,8 +134,34 @@ class InfoFormActivity : AppCompatActivity() {
 
     // region --- NAVIGATION ---
     private fun prepareTonavigateToResult() {
+        populateInfos()
         viewModel.currentStep.value = viewModel.currentStep.value?.plus(1)
         handler.postDelayed(goToResult, 1000)
+    }
+
+    private fun populateInfos() {
+        viewModel.populateInfosScreenOne(infoFormOneFragment.viewModel.plantSelected,
+                infoFormOneFragment.viewModel.inputTypeSelected)
+        viewModel.populateInfosScreenTwo(
+                infoFormTwoFragment.viewModel.phWater.get()!!.toFormattedDouble()!!,
+                infoFormTwoFragment.viewModel.ca.get()!!.toFormattedDouble()!!,
+                infoFormTwoFragment.viewModel.mg.get()!!.toFormattedDouble()!!,
+                infoFormTwoFragment.viewModel.al.get()!!.toFormattedDouble()!!,
+                infoFormTwoFragment.viewModel.hAl.get()!!.toFormattedDouble()!!,
+                infoFormTwoFragment.viewModel.ctcEfetiva.get()!!.toFormattedDouble()!!)
+        viewModel.populateInfosScreenThree(
+                infoFormThreeFragment.viewModel.al.get()!!.toFormattedDouble()!!,
+                infoFormThreeFragment.viewModel.bases.get()!!.toFormattedDouble()!!,
+                infoFormThreeFragment.viewModel.indexSMP.get()!!.toFormattedDouble()!!)
+        viewModel.populateInfosScreenFour(
+                infoFormFourFragment.viewModel.mo.get()!!.toFormattedDouble()!!,
+                infoFormFourFragment.viewModel.clay.get()!!.toFormattedDouble()!!,
+                infoFormFourFragment.viewModel.kMol.get()!!.toFormattedDouble()!!,
+                infoFormFourFragment.viewModel.texture.get()!!.toFormattedDouble()!!,
+                infoFormFourFragment.viewModel.s.get()!!.toFormattedDouble()!!,
+                infoFormFourFragment.viewModel.kMg.get()!!.toFormattedDouble()!!,
+                infoFormFourFragment.viewModel.pMehlich.get()!!.toFormattedDouble()!!,
+                infoFormFourFragment.viewModel.ctc.get()!!.toFormattedDouble()!!)
     }
 
     private fun navigateToResult() {

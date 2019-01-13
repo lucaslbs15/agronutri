@@ -49,6 +49,7 @@ dependencies {
     implementation config.commonDependency.cardViewLib
     implementation config.customViewDependency.stepperIndicator
     implementation config.customViewDependency.canarinho
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation config.testDependency.jUnit
     androidTestImplementation config.testDependency.testRunner
     androidTestImplementation config.testDependency.espressoCore
