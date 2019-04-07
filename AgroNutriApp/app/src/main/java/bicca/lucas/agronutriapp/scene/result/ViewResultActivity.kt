@@ -1,7 +1,6 @@
 package bicca.lucas.agronutriapp.scene.result
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import bicca.lucas.agronutriapp.R
 
@@ -13,11 +12,11 @@ class ViewResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_result)
         setSupportActionBar(toolbar)
+        setTitle("Bazinga!")
+    }
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+    private fun setTitle(title: String) {
+        activity_view_result_title.text = title
     }
 
 }

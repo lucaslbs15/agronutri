@@ -2,6 +2,7 @@ package bicca.lucas.agronutriapp.scene.info_form
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.os.Handler
@@ -15,6 +16,7 @@ import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormOneFragment
 import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormThreeFragment
 import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormTwoFragment
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormViewModel
+import bicca.lucas.agronutriapp.scene.result.ViewResultActivity
 import bicca.lucas.agronutriapp.utils.toFormattedDouble
 import bicca.lucas.agronutriapp.view.CustomPagerAdapter
 
@@ -165,7 +167,14 @@ class InfoFormActivity : AppCompatActivity() {
     }
 
     private fun navigateToResult() {
-        Toast.makeText(this@InfoFormActivity, "Exibir Resultado", Toast.LENGTH_SHORT).show()
+        val bundle = Bundle(1).apply {
+            putParcelable("INFO_FORM", viewModel.infoForm)
+        }
+
+        Intent(this, ViewResultActivity::class.java).also { intent ->
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
     }
     // endregion
 

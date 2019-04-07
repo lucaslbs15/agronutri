@@ -1,9 +1,12 @@
 package bicca.lucas.agronutriapp.logic.`object`
 
+import android.os.Parcel
+import android.os.Parcelable
 import bicca.lucas.agronutriapp.logic.InputType
 import bicca.lucas.agronutriapp.logic.PlantEnum
+import bicca.lucas.agronutriapp.utils.orZero
 
-class InfoForm {
+class InfoForm() : Parcelable {
 
     // region --- SCREEN ONE ---
     var plant: PlantEnum? = null
@@ -35,4 +38,90 @@ class InfoForm {
     var pMehlich: Double? = null
     var ctc: Double? = null
     // endregion
+
+    constructor(parcel: Parcel) : this() {
+        parcel.run {
+            // region --- READ PARCEL SCREEN ONE ---
+            plant = PlantEnum.valueOf(readString())
+            inputType = InputType.valueOf(readString())
+            // endregion
+
+            // region --- READ PARCEL SCREEN TWO ---
+            phWater = readDouble()
+            ca = readDouble()
+            mg = readDouble()
+            alCmol = readDouble()
+            hAl = readDouble()
+            ctcEfetiva = readDouble()
+            // endregion
+
+            // region --- READ PARCEL SCREEN THREE ---
+            alPercent = readDouble()
+            bases = readDouble()
+            indexSMP = readDouble()
+            // endregion
+
+            // region --- READ PARCEL SCREEN FOUR ---
+            mo = readDouble()
+            clay = readDouble()
+            kCmol = readDouble()
+            texture = readDouble()
+            s = readDouble()
+            kMg = readDouble()
+            pMehlich = readDouble()
+            ctc = readDouble()
+            // endregion
+        }
+    }
+
+    override fun writeToParcel(dest: Parcel?, flags: Int) {
+        dest?.apply {
+            // region --- WRITE PARCEL SCREEN ONE ---
+            writeString(plant?.name)
+            writeString(inputType?.name)
+            // endregion
+
+            // region --- WRITE PARCEL SCREEN TWO ---
+            writeDouble(phWater.orZero())
+            writeDouble(ca.orZero())
+            writeDouble(mg.orZero())
+            writeDouble(alCmol.orZero())
+            writeDouble(hAl.orZero())
+            writeDouble(ctcEfetiva.orZero())
+            // endregion
+
+            // region --- WRITE PARCEL SCREEN THREE ---
+            writeDouble(alPercent.orZero())
+            writeDouble(bases.orZero())
+            writeDouble(indexSMP.orZero())
+            // endregion
+
+            // region --- WRITE PARCEL SCREEN FOUR ---
+            writeDouble(mo.orZero())
+            writeDouble(clay.orZero())
+            writeDouble(kCmol.orZero())
+            writeDouble(texture.orZero())
+            writeDouble(s.orZero())
+            writeDouble(kMg.orZero())
+            writeDouble(pMehlich.orZero())
+            writeDouble(ctc.orZero())
+            // endregion
+        }
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<InfoForm> {
+
+        override fun createFromParcel(source: Parcel?): InfoForm {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun newArray(size: Int): Array<InfoForm?> {
+            return arrayOfNulls(size)
+        }
+
+    }
 }
