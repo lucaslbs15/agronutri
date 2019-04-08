@@ -10,6 +10,8 @@ import android.view.ViewGroup
 
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.databinding.InfoFormThreeFragmentBinding
+import bicca.lucas.agronutriapp.logic.`object`.InfoForm
+import bicca.lucas.agronutriapp.scene.BundleConstants
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormThreeViewModel
 import br.com.concrete.canarinho.watcher.ValorMonetarioWatcher
 
@@ -28,11 +30,23 @@ class InfoFormThreeFragment : Fragment() {
     // region --- LIFECYCLE ---
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        viewModel = ViewModelProviders.of(this).get(InfoFormThreeViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.info_form_three_fragment, container, false)
-        binding.viewModel = viewModel
         setupWatchers()
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(InfoFormThreeViewModel::class.java)
+        savedInstanceState?.getParcelable<InfoForm>(BundleConstants.INFO_FORM_THREE)?.let {
+            viewModel.setValues(it)
+        }
+        binding.viewModel = viewModel
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(BundleConstants.INFO_FORM_THREE, viewModel.getValues())
     }
     // endregion
 

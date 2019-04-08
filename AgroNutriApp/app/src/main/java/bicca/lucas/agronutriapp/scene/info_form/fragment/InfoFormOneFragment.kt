@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.databinding.InfoFormOneFragmentBinding
 import bicca.lucas.agronutriapp.logic.PlantEnum
+import bicca.lucas.agronutriapp.logic.`object`.InfoForm
+import bicca.lucas.agronutriapp.scene.BundleConstants
 import bicca.lucas.agronutriapp.scene.info_form.OnPlantItemClickListener
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormOneViewModel
 import bicca.lucas.agronutriapp.utils.KeyboardUtils
@@ -28,17 +30,25 @@ class InfoFormOneFragment : Fragment(), OnPlantItemClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.info_form_one_fragment, container, false)
-        viewModel = ViewModelProviders.of(this).get(InfoFormOneViewModel::class.java)
-        binding.viewModel = viewModel
         binding.context = context
-        initPlantAdapter()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(InfoFormOneViewModel::class.java)
+        savedInstanceState?.getParcelable<InfoForm>(BundleConstants.INFO_FORM_ONE)?.let {
+            viewModel.setValues(it)
+        }
+        binding.viewModel = viewModel
+        initPlantAdapter()
         initOnFocusChange()
         initLiveData()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(BundleConstants.INFO_FORM_ONE, viewModel.getValues())
     }
 
     override fun onResume() {

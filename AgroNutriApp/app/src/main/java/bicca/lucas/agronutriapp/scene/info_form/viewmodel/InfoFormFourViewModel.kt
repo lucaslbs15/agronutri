@@ -5,6 +5,9 @@ import android.arch.lifecycle.AndroidViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import bicca.lucas.agronutriapp.R
+import bicca.lucas.agronutriapp.logic.`object`.InfoForm
+import bicca.lucas.agronutriapp.utils.orZero
+import bicca.lucas.agronutriapp.utils.toFormattedDouble
 
 class InfoFormFourViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -40,6 +43,32 @@ class InfoFormFourViewModel(application: Application) : AndroidViewModel(applica
     val kMgShowErrorMessage = ObservableBoolean(false)
     val pMehlichShowErrorMessage = ObservableBoolean(false)
     val ctcShowErrorMessage = ObservableBoolean(false)
+    // endregion
+
+    // region --- POPULATE VALUES ---
+    fun getValues(): InfoForm {
+        return InfoForm().apply {
+            mo = this@InfoFormFourViewModel.mo.get()?.toFormattedDouble()
+            clay = this@InfoFormFourViewModel.clay.get()?.toFormattedDouble()
+            kCmol = this@InfoFormFourViewModel.kMol.get()?.toFormattedDouble()
+            texture = this@InfoFormFourViewModel.texture.get()?.toFormattedDouble()
+            s = this@InfoFormFourViewModel.s.get()?.toFormattedDouble()
+            kMg = this@InfoFormFourViewModel.kMg.get()?.toFormattedDouble()
+            pMehlich = this@InfoFormFourViewModel.pMehlich.get()?.toFormattedDouble()
+            ctc = this@InfoFormFourViewModel.ctc.get()?.toFormattedDouble()
+        }
+    }
+
+    fun setValues(values: InfoForm) {
+        mo.set(values.mo.orZero().toString())
+        clay.set(values.clay.orZero().toString())
+        kMol.set(values.kCmol.orZero().toString())
+        texture.set(values.texture.orZero().toString())
+        s.set(values.s.orZero().toString())
+        kMg.set(values.kMg.orZero().toString())
+        pMehlich.set(values.pMehlich.orZero().toString())
+        ctc.set(values.ctc.orZero().toString())
+    }
     // endregion
 
     // region --- VALIDATIONS ---

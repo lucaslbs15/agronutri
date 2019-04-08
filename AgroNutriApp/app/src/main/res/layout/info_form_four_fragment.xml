@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.mo}"/>
+                    android:text="@={viewModel.mo}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.clay}"/>
+                    android:text="@={viewModel.clay}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.kMol}"/>
+                    android:text="@={viewModel.kMol}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.texture}"/>
+                    android:text="@={viewModel.texture}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -130,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.s}"/>
+                    android:text="@={viewModel.s}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -153,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.kMg}"/>
+                    android:text="@={viewModel.kMg}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -176,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.pMehlich}"/>
+                    android:text="@={viewModel.pMehlich}"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -199,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:digits="@string/number_digits"
                     android:inputType="number"
-                    android:text="@{viewModel.ctc}"/>
+                    android:text="@={viewModel.ctc}"/>
             </android.support.design.widget.TextInputLayout>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

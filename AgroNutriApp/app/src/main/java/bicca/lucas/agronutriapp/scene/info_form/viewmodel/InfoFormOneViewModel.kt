@@ -9,6 +9,7 @@ import android.databinding.ObservableInt
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.logic.InputType
 import bicca.lucas.agronutriapp.logic.PlantEnum
+import bicca.lucas.agronutriapp.logic.`object`.InfoForm
 
 class InfoFormOneViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -58,6 +59,24 @@ class InfoFormOneViewModel(application: Application) : AndroidViewModel(applicat
         else
             inputTypeErrorMessage.set(getApplication<Application>().getString(R.string.empty_text))
         return inputTypeShowErrorMessage.get()
+    }
+    // endregion
+
+    // region --- POPULATE VALUES ---
+    fun getValues() : InfoForm {
+        return InfoForm().apply {
+            plant = plantSelected
+            inputType = inputTypeSelected
+        }
+    }
+
+    fun setValues(values: InfoForm) {
+        values.inputType?.let {
+            values.plant?.let {
+                updatePlantSelected(it)
+            }
+            onInputTypeChanged(true, it)
+        }
     }
     // endregion
 

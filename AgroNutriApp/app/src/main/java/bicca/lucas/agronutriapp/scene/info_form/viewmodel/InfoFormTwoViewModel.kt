@@ -5,6 +5,9 @@ import android.arch.lifecycle.AndroidViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import bicca.lucas.agronutriapp.R
+import bicca.lucas.agronutriapp.logic.`object`.InfoForm
+import bicca.lucas.agronutriapp.utils.orZero
+import bicca.lucas.agronutriapp.utils.toFormattedDouble
 
 class InfoFormTwoViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -33,6 +36,28 @@ class InfoFormTwoViewModel(application: Application) : AndroidViewModel(applicat
     val alShowErrorMessage = ObservableBoolean(false)
     val hAlShowErrorMessage = ObservableBoolean(false)
     val ctcEfetivaShowErrorMessage = ObservableBoolean(false)
+    // endregion
+
+    // region --- POPULATE VALUES ---
+    fun getValues(): InfoForm {
+        return InfoForm().apply {
+            phWater = this@InfoFormTwoViewModel.phWater.get()?.toFormattedDouble()
+            ca = this@InfoFormTwoViewModel.ca.get()?.toFormattedDouble()
+            mg = this@InfoFormTwoViewModel.mg.get()?.toFormattedDouble()
+            alCmol = this@InfoFormTwoViewModel.al.get()?.toFormattedDouble()
+            hAl = this@InfoFormTwoViewModel.hAl.get()?.toFormattedDouble()
+            ctcEfetiva = this@InfoFormTwoViewModel.ctcEfetiva.get()?.toFormattedDouble()
+        }
+    }
+
+    fun setValues(values: InfoForm) {
+        phWater.set(values.phWater.orZero().toString())
+        ca.set(values.ca.orZero().toString())
+        mg.set(values.mg.orZero().toString())
+        al.set(values.alCmol.orZero().toString())
+        hAl.set(values.hAl.orZero().toString())
+        ctcEfetiva.set(values.ctcEfetiva.orZero().toString())
+    }
     // endregion
 
     // region --- VALIDATIONS ---

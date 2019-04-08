@@ -5,6 +5,9 @@ import android.arch.lifecycle.AndroidViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import bicca.lucas.agronutriapp.R
+import bicca.lucas.agronutriapp.logic.`object`.InfoForm
+import bicca.lucas.agronutriapp.utils.orZero
+import bicca.lucas.agronutriapp.utils.toFormattedDouble
 
 class InfoFormThreeViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -25,6 +28,22 @@ class InfoFormThreeViewModel(application: Application) : AndroidViewModel(applic
     val alShowErrorMessage = ObservableBoolean(false)
     val basesShowErrorMessage = ObservableBoolean(false)
     val indexSMPShowErrorMessage = ObservableBoolean(false)
+    // endregion
+
+    // region --- POPULATE VALUES ---
+    fun getValues(): InfoForm {
+        return InfoForm().apply {
+            alPercent = al.get()?.toFormattedDouble()
+            bases = this@InfoFormThreeViewModel.bases.get()?.toFormattedDouble()
+            indexSMP = this@InfoFormThreeViewModel.indexSMP.get()?.toFormattedDouble()
+        }
+    }
+
+    fun setValues(values: InfoForm) {
+        al.set(values.alPercent.orZero().toString())
+        bases.set(values.bases.orZero().toString())
+        indexSMP.set(values.indexSMP.orZero().toString())
+    }
     // endregion
 
     // region --- VALIDATIONS ---

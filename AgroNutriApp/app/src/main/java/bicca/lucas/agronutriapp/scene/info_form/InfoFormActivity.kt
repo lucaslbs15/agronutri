@@ -168,7 +168,7 @@ class InfoFormActivity : AppCompatActivity() {
 
     private fun navigateToResult() {
         val bundle = Bundle(1).apply {
-            putParcelable("INFO_FORM", viewModel.infoForm)
+            putParcelable("INFO_FORM_EXTRAS", viewModel.infoForm)
         }
 
         Intent(this, ViewResultActivity::class.java).also { intent ->
