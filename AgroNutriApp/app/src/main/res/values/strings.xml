@@ -41,4 +41,24 @@
     <string name="title_activity_result">Resultado</string>
     <string name="title_activity_view_result">ViewResultActivity</string>
 
+    <!-- RESULT -->
+    <string name="view_result_title">Resultado</string>
+    <plurals name="view_result_quantity_liming">
+        <item quantity="one">%s tonelada por hectáre</item>
+        <item quantity="other">%s toneladas por hectáre</item>
+    </plurals>
+    <string name="view_result_quantity_liming_tools">10,4 toneladas por hectáre</string>
+    <plurals name="view_result_day_before_application">
+        <item quantity="one">%s dia antes de semear</item>
+        <item quantity="two">%s dias antes de semear</item>
+    </plurals>
+    <string name="view_result_days_liming_tools">30 dias antes de semear</string>
+
+    <string name="view_result_first_cultivation">1º cultivo</string>
+    <string name="view_result_second_cultivation">2º cultivo</string>
+    <string name="view_result_quantity_fertilizing">%s kg de %s/hectáre</string>
+    <string name="view_result_quantity_fertilizing_tools">95 kg de K205/hectáre</string>
+
+
+
 </resources>

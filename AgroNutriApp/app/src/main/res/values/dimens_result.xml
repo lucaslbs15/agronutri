@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_view_result_padding">16dp</dimen>
+    <dimen name="activity_view_result_container_margin_top">20dp</dimen>
+    <dimen name="activity_view_result_cutivation_margin_top">16dp</dimen>
+</resources>

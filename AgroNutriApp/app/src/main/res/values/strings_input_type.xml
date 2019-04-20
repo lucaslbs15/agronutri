@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="input_type_none">Nenhum</string>
+    <string name="input_type_fertilizing">Adubação</string>
+    <string name="input_type_liming">Calagem</string>
+</resources>

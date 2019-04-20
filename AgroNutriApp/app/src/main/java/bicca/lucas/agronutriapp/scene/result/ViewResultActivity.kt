@@ -12,11 +12,7 @@ class ViewResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_result)
         setSupportActionBar(toolbar)
-        setTitle("Bazinga!")
-    }
 
-    private fun setTitle(title: String) {
-        activity_view_result_title.text = title
     }
 
 }

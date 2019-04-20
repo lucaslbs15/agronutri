@@ -100,13 +100,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onCheckedChanged="@{(rb, isChecked) -> viewModel.onInputTypeChanged(isChecked, InputType.FERTILIZING)}"
-                        android:text="@string/form_one_fragment_input_type_fertilizing"/>
+                        android:text="@string/input_type_fertilizing"/>
 
                     <android.support.v7.widget.AppCompatRadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onCheckedChanged="@{(rb, isChecked) -> viewModel.onInputTypeChanged(isChecked, InputType.LIMING)}"
-                        android:text="@string/form_one_fragment_input_type_liming"/>
+                        android:text="@string/input_type_liming"/>
                 </RadioGroup>
             </LinearLayout>
         </android.support.v7.widget.CardView>
