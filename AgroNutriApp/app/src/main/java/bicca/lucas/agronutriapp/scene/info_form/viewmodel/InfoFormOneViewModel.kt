@@ -10,6 +10,8 @@ import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.logic.InputType
 import bicca.lucas.agronutriapp.logic.PlantEnum
 import bicca.lucas.agronutriapp.logic.`object`.InfoForm
+import bicca.lucas.agronutriapp.utils.orZero
+import bicca.lucas.agronutriapp.utils.toFormattedDouble
 
 class InfoFormOneViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -24,6 +26,8 @@ class InfoFormOneViewModel(application: Application) : AndroidViewModel(applicat
     val plant = ObservableField<String>("")
     val plantId = ObservableInt(R.string.empty_text)
     var plantSelected: PlantEnum = PlantEnum.NONE
+    val area = ObservableField("")
+    var distance = ObservableField("")
     val plantErrorMessage = ObservableField<String>(" ")
     val plantShowErrorMessage = ObservableBoolean(false)
     val plantHelperTextEnabled = ObservableBoolean(false)
@@ -31,7 +35,11 @@ class InfoFormOneViewModel(application: Application) : AndroidViewModel(applicat
 
     val inputTypeId = ObservableInt(R.string.empty_text)
     val inputTypeErrorMessage = ObservableField<String>("")
+    val areaTypeErrorMessage = ObservableField("")
+    val distanceErrorMessage = ObservableField("")
     val inputTypeShowErrorMessage = ObservableBoolean(false)
+    val areaShowErrorMessage = ObservableBoolean(false)
+    val distanceShowErrorMessage = ObservableBoolean(false)
     val inputTypeShowHelperText = ObservableBoolean(false)
     val inputTypeHelperTextId = ObservableInt(R.string.form_one_fragment_input_type_edit_text_helper)
     // endregion
@@ -40,7 +48,9 @@ class InfoFormOneViewModel(application: Application) : AndroidViewModel(applicat
     fun shouldShowErrors() : Boolean {
         val shouldShowPlantError = shouldShowPlantError()
         val shouldShowInputTypeError = shouldShowInputTypeError()
-        return shouldShowPlantError || shouldShowInputTypeError
+        val shouldShowAreaError = shouldShowAreaError()
+        val shouldShowDistanceError = shouldShowDistanceError()
+        return shouldShowPlantError || shouldShowInputTypeError || shouldShowAreaError || shouldShowDistanceError
     }
 
     private fun shouldShowPlantError() : Boolean {
@@ -60,6 +70,24 @@ class InfoFormOneViewModel(application: Application) : AndroidViewModel(applicat
             inputTypeErrorMessage.set(getApplication<Application>().getString(R.string.empty_text))
         return inputTypeShowErrorMessage.get()
     }
+
+    private fun shouldShowAreaError() : Boolean {
+        areaShowErrorMessage.set(area.get().isNullOrEmpty() || area.get().isNullOrBlank())
+        if (areaShowErrorMessage.get())
+            areaTypeErrorMessage.set(getApplication<Application>().getString(R.string.form_one_fragment_area_text_error))
+        else
+            areaTypeErrorMessage.set(getApplication<Application>().getString(R.string.empty_text))
+        return areaShowErrorMessage.get()
+    }
+
+    private fun shouldShowDistanceError() : Boolean {
+        distanceShowErrorMessage.set(distance.get().isNullOrEmpty() || distance.get().isNullOrBlank())
+        if (distanceShowErrorMessage.get())
+            distanceErrorMessage.set(getApplication<Application>().getString(R.string.form_one_fragment_distance_text_error))
+        else
+            distanceErrorMessage.set(getApplication<Application>().getString(R.string.empty_text))
+        return distanceShowErrorMessage.get()
+    }
     // endregion
 
     // region --- POPULATE VALUES ---
@@ -67,6 +95,8 @@ class InfoFormOneViewModel(application: Application) : AndroidViewModel(applicat
         return InfoForm().apply {
             plant = plantSelected
             inputType = inputTypeSelected
+            area = this@InfoFormOneViewModel.area.get()?.toFormattedDouble()
+            distance = this@InfoFormOneViewModel.distance.get()?.toFormattedDouble()
         }
     }
 
@@ -77,6 +107,8 @@ class InfoFormOneViewModel(application: Application) : AndroidViewModel(applicat
             }
             onInputTypeChanged(true, it)
         }
+        area.set(values.area.orZero().toString())
+        distance.set(values.distance.orZero().toString())
     }
     // endregion
 

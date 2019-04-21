@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.databinding.ActivityInfoFormBinding
+import bicca.lucas.agronutriapp.scene.BundleConstants
 import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormFourFragment
 import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormOneFragment
 import bicca.lucas.agronutriapp.scene.info_form.fragment.InfoFormThreeFragment
@@ -143,7 +144,9 @@ class InfoFormActivity : AppCompatActivity() {
 
     private fun populateInfos() {
         viewModel.populateInfosScreenOne(infoFormOneFragment.viewModel.plantSelected,
-                infoFormOneFragment.viewModel.inputTypeSelected)
+                infoFormOneFragment.viewModel.inputTypeSelected,
+                infoFormOneFragment.viewModel.area.get()!!.toFormattedDouble()!!,
+                infoFormOneFragment.viewModel.distance.get()!!.toFormattedDouble()!!)
         viewModel.populateInfosScreenTwo(
                 infoFormTwoFragment.viewModel.phWater.get()!!.toFormattedDouble()!!,
                 infoFormTwoFragment.viewModel.ca.get()!!.toFormattedDouble()!!,
@@ -168,7 +171,7 @@ class InfoFormActivity : AppCompatActivity() {
 
     private fun navigateToResult() {
         val bundle = Bundle(1).apply {
-            putParcelable("INFO_FORM_EXTRAS", viewModel.infoForm)
+            putParcelable(BundleConstants.INFO_FORM_EXTRAS, viewModel.infoForm)
         }
 
         Intent(this, ViewResultActivity::class.java).also { intent ->

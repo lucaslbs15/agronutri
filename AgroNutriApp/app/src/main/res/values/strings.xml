@@ -11,43 +11,51 @@
     <string name="form_one_fragment_input_type">Aplicação</string>
     <string name="form_one_fragment_input_type_edit_text_helper">Escolha uma aplicação</string>
     <string name="form_one_fragment_input_type_text_error">Aplicação deve ser preenchida</string>
+    <string name="form_one_fragment_area_text_error">Área da faixa de aplicação deve ser preenchida</string>
+    <string name="form_one_fragment_distance_text_error">Distância entre linhas deve ser preenchida</string>
     <string name="form_one_fragment_input_type_none">Nenhum</string>
     <string name="form_one_fragment_input_type_fertilizing">Adubação</string>
     <string name="form_one_fragment_input_type_liming">Calagem</string>
+    <string name="form_one_fragment_area">Largura da faixa de aplicação em metros</string>
+    <string name="form_one_fragment_distance">Distância entre linhas de plantio em metros</string>
 
     <!-- FORM TWO -->
     <string name="form_two_fragment_ph_water">pH Água</string>
-    <string name="form_two_fragment_ca">Ca</string>
-    <string name="form_two_fragment_mg">Mg</string>
-    <string name="form_two_fragment_al">Al</string>
-    <string name="form_two_fragment_h_al">H + Al</string>
-    <string name="form_two_fragment_ctc">CTC efetiva</string>
+    <string name="form_two_fragment_ca">Ca (cmolc/dm3)</string>
+    <string name="form_two_fragment_mg">Mg (cmolc/dm3)</string>
+    <string name="form_two_fragment_al">Al (cmolc/dm3)</string>
+    <string name="form_two_fragment_h_al">H + Al (cmolc/dm3)</string>
+    <string name="form_two_fragment_ctc">CTC efetiva (cmolc/dm3)</string>
     <string name="form_two_fragment_default_error_message">Campo obrigatório</string>
 
     <!-- FORM THREE -->
-    <string name="form_three_fragment_al">Al</string>
-    <string name="form_three_fragment_bases">Bases</string>
+    <string name="form_three_fragment_al">Al (%)</string>
+    <string name="form_three_fragment_bases">Bases (%)</string>
     <string name="form_three_fragment_index_smp">Índice SMP</string>
 
     <!-- FORM FOUR -->
-    <string name="form_four_fragment_mo">% MO</string>
-    <string name="form_four_fragment_clay">% Argila</string>
-    <string name="form_four_fragment_k_cmol">K</string>
-    <string name="form_four_fragment_k_mg">K</string>
+    <string name="form_four_fragment_mo">% MO (m/v)</string>
+    <string name="form_four_fragment_clay">% Argila (m/v)</string>
+    <string name="form_four_fragment_k_cmol">K (cmolc/dm3)</string>
+    <string name="form_four_fragment_k_mg">K (mg/dm3)</string>
     <string name="form_four_fragment_texture">Textura</string>
-    <string name="form_four_fragment_s">S</string>
-    <string name="form_four_fragment_p_mehlich">P-Mehlick</string>
-    <string name="form_four_fragment_ctc_ph7">CTC pH7</string>
+    <string name="form_four_fragment_s">S (mg/dm3)</string>
+    <string name="form_four_fragment_p_mehlich">P-Mehlick (mg/dm3)</string>
+    <string name="form_four_fragment_ctc_ph7">CTC pH7 (cmolc/dm3)</string>
     <string name="title_activity_result">Resultado</string>
-    <string name="title_activity_view_result">ViewResultActivity</string>
+    <string name="title_activity_view_result">Resultado</string>
 
     <!-- RESULT -->
     <string name="view_result_title">Resultado</string>
     <plurals name="view_result_quantity_liming">
-        <item quantity="one">%s tonelada por hectáre</item>
-        <item quantity="other">%s toneladas por hectáre</item>
+        <item quantity="one">%s tonelada por hectare</item>
+        <item quantity="other">%s toneladas por hectare</item>
     </plurals>
-    <string name="view_result_quantity_liming_tools">10,4 toneladas por hectáre</string>
+    <plurals name="view_result_quantity_by_area_liming">
+        <item quantity="one">%s tonelada por hectare</item>
+        <item quantity="other">%s toneladas por hectare</item>
+    </plurals>
+    <string name="view_result_quantity_liming_tools">10,4 toneladas por hectare</string>
     <plurals name="view_result_day_before_application">
         <item quantity="one">%s dia antes de semear</item>
         <item quantity="two">%s dias antes de semear</item>
@@ -56,9 +64,12 @@
 
     <string name="view_result_first_cultivation">1º cultivo</string>
     <string name="view_result_second_cultivation">2º cultivo</string>
-    <string name="view_result_quantity_fertilizing">%s kg de %s/hectáre</string>
-    <string name="view_result_quantity_fertilizing_tools">95 kg de K205/hectáre</string>
-
-
-
+    <string name="view_result_quantity_fertilizing">%s kg de %s/hectare</string>
+    <string name="view_result_quantity_fertilizing_tools">95 kg de K205/hectare</string>
+    <string name="view_result_first_option">Primeira alternativa</string>
+    <string name="view_result_second_option">Segunda alternativa</string>
+    <string name="view_result_plant">Quantidade de aplicação para o cultivo de %s.
+        Aqui você possui duas alternativas de aplicação, a primeira considerando somente os
+        componentes encontrados na análise do solo e a segunda considerando a área do plantio.
+    </string>
 </resources>

@@ -4,6 +4,7 @@ import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
+import android.util.Log
 import bicca.lucas.agronutriapp.R
 import bicca.lucas.agronutriapp.logic.`object`.InfoForm
 import bicca.lucas.agronutriapp.utils.orZero

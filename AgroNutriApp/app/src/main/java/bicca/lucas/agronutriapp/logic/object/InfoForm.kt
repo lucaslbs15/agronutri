@@ -11,6 +11,8 @@ class InfoForm() : Parcelable {
     // region --- SCREEN ONE ---
     var plant: PlantEnum? = null
     var inputType: InputType? = null
+    var area: Double? = null
+    var distance: Double? = null
     // endregion
 
     // region --- SCREEN TWO ---
@@ -44,6 +46,8 @@ class InfoForm() : Parcelable {
             // region --- READ PARCEL SCREEN ONE ---
             plant = PlantEnum.valueOf(readString())
             inputType = InputType.valueOf(readString())
+            area = readDouble()
+            distance = readDouble()
             // endregion
 
             // region --- READ PARCEL SCREEN TWO ---
@@ -79,6 +83,8 @@ class InfoForm() : Parcelable {
             // region --- WRITE PARCEL SCREEN ONE ---
             writeString(plant?.name)
             writeString(inputType?.name)
+            writeDouble(area.orZero())
+            writeDouble(distance.orZero())
             // endregion
 
             // region --- WRITE PARCEL SCREEN TWO ---
@@ -115,8 +121,8 @@ class InfoForm() : Parcelable {
 
     companion object CREATOR : Parcelable.Creator<InfoForm> {
 
-        override fun createFromParcel(source: Parcel?): InfoForm {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        override fun createFromParcel(source: Parcel): InfoForm {
+            return InfoForm(source)
         }
 
         override fun newArray(size: Int): Array<InfoForm?> {

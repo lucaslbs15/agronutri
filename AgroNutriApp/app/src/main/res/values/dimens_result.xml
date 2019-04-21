@@ -3,4 +3,8 @@
     <dimen name="activity_view_result_padding">16dp</dimen>
     <dimen name="activity_view_result_container_margin_top">20dp</dimen>
     <dimen name="activity_view_result_cutivation_margin_top">16dp</dimen>
+    <dimen name="activity_view_result_plant_margin_top">5dp</dimen>
+    <dimen name="activity_view_result_option_margin_top">5dp</dimen>
+    <dimen name="activity_view_result_days_margin_top">10dp</dimen>
+    <dimen name="activity_view_result_option_label_size">18sp</dimen>
 </resources>

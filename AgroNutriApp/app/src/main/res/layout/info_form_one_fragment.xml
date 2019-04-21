@@ -46,6 +46,52 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/info_form_one_fragment_til_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/info_form_one_fragment_margin"
+            android:layout_marginTop="@dimen/info_form_one_fragment_margin"
+            android:layout_marginEnd="@dimen/info_form_one_fragment_margin"
+            android:hint="@string/form_one_fragment_area"
+            app:error="@{viewModel.areaTypeErrorMessage}"
+            app:errorEnabled="@{viewModel.areaShowErrorMessage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info_form_one_fragment_til_plant">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/info_form_one_fragment_tie_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/number_digits"
+                android:inputType="number"
+                android:text="@={viewModel.area}"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/info_form_one_fragment_til_distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/info_form_one_fragment_margin"
+            android:layout_marginTop="@dimen/info_form_one_fragment_margin"
+            android:layout_marginEnd="@dimen/info_form_one_fragment_margin"
+            android:hint="@string/form_one_fragment_distance"
+            app:error="@{viewModel.distanceErrorMessage}"
+            app:errorEnabled="@{viewModel.distanceShowErrorMessage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info_form_one_fragment_til_area">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/info_form_one_fragment_tie_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/number_digits"
+                android:inputType="number"
+                android:text="@={viewModel.distance}"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +103,7 @@
             app:errorEnabled="@{viewModel.inputTypeShowErrorMessage}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/info_form_one_fragment_til_plant">
+            app:layout_constraintTop_toBottomOf="@+id/info_form_one_fragment_til_distance">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/info_form_one_fragment_tie_input_type"

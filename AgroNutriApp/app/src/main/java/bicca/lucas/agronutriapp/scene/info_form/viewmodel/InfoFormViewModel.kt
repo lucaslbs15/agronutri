@@ -20,9 +20,11 @@ class InfoFormViewModel : ViewModel() {
     }
 
     // region --- SETUP ---
-    fun populateInfosScreenOne(plant: PlantEnum, inputType: InputType) {
+    fun populateInfosScreenOne(plant: PlantEnum, inputType: InputType, area: Double, distance: Double) {
         infoForm.plant = plant
         infoForm.inputType = inputType
+        infoForm.area = area
+        infoForm.distance = distance
     }
 
     fun populateInfosScreenTwo(phWater: Double, ca: Double, mg: Double, alCmol: Double, hAl: Double, ctcEfetiva: Double) {

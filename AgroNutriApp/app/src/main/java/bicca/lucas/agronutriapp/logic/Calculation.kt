@@ -37,7 +37,7 @@ class Calculation {
          * @return NC pH 5,5 - Em que: NC = necessidade de calcário (PRNT 100%), em t/ha,
          * para corrigir a camada de 0 a 20 cm aos pH de referência de 5,5
          */
-        private fun ncByPh55(mo: Double, al: Double) = -0.653 + (0.480 * mo) + (1.937 * al)
+        private fun ncByPh55(mo: Double, al: Double) = ((0.480 * mo) + (1.937 * al)) - 0.653
 
         /**
          * Equação polinomial que leva em conta o teor da matéria e de alumínio trocável
@@ -53,7 +53,7 @@ class Calculation {
          * @return NC pH 6,0 - Em que: NC = necessidade de calcário (PRNT 100%), em t/ha,
          * para corrigir a camada de 0 a 20 cm aos pH de referência de 6,0
          */
-        private fun ncByPh60(mo: Double, al: Double) = -0.516 + (0.805 * mo) + (2.435 * al)
+        private fun ncByPh60(mo: Double, al: Double) =  ((0.805 * mo) + (2.435 * al)) - 0.516
 
         /**
          * Equação polinomial que leva em conta o teor da matéria e de alumínio trocável
@@ -69,7 +69,7 @@ class Calculation {
          * @return NC pH 6,5 - Em que: NC = necessidade de calcário (PRNT 100%), em t/ha,
          * para corrigir a camada de 0 a 20 cm aos pH de referência de 6,5
          */
-        private fun ncByPh65(mo: Double, al: Double) = -0.122 + (1.193 * mo) + (2.713 * al)
+        private fun ncByPh65(mo: Double, al: Double) = ((1.193 * mo) + (2.713 * al)) - 0.122
 
         /**
          * Mesmo para as culturas perenes com grande espaçamento entre linhas, o mais

@@ -17,6 +17,7 @@ import bicca.lucas.agronutriapp.scene.info_form.OnPlantItemClickListener
 import bicca.lucas.agronutriapp.scene.info_form.viewmodel.InfoFormOneViewModel
 import bicca.lucas.agronutriapp.utils.KeyboardUtils
 import bicca.lucas.agronutriapp.view.PlantAdapter
+import br.com.concrete.canarinho.watcher.ValorMonetarioWatcher
 
 class InfoFormOneFragment : Fragment(), OnPlantItemClickListener {
 
@@ -31,6 +32,8 @@ class InfoFormOneFragment : Fragment(), OnPlantItemClickListener {
                               savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.info_form_one_fragment, container, false)
         binding.context = context
+        binding.infoFormOneFragmentTieArea.addTextChangedListener(ValorMonetarioWatcher())
+        binding.infoFormOneFragmentTieDistance.addTextChangedListener(ValorMonetarioWatcher())
         return binding.root
     }
 
