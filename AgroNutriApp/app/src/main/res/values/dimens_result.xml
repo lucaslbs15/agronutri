@@ -7,4 +7,6 @@
     <dimen name="activity_view_result_option_margin_top">5dp</dimen>
     <dimen name="activity_view_result_days_margin_top">10dp</dimen>
     <dimen name="activity_view_result_option_label_size">18sp</dimen>
+    <dimen name="activity_view_result_result_container_padding">10dp</dimen>
+    <dimen name="activity_view_result_plant_label_size">16sp</dimen>
 </resources>

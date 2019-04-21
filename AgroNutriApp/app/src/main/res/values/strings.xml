@@ -68,7 +68,7 @@
     <string name="view_result_quantity_fertilizing_tools">95 kg de K205/hectare</string>
     <string name="view_result_first_option">Primeira alternativa</string>
     <string name="view_result_second_option">Segunda alternativa</string>
-    <string name="view_result_plant">Quantidade de aplicação para o cultivo de %s.
+    <string name="view_result_plant">Quantidade de aplicação de %s para o cultivo de %s.
         Aqui você possui duas alternativas de aplicação, a primeira considerando somente os
         componentes encontrados na análise do solo e a segunda considerando a área do plantio.
     </string>

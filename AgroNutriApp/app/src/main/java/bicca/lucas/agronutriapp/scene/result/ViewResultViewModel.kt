@@ -11,16 +11,17 @@ import bicca.lucas.agronutriapp.logic.Calculation
 import bicca.lucas.agronutriapp.logic.InputType
 import bicca.lucas.agronutriapp.logic.`object`.InfoForm
 import bicca.lucas.agronutriapp.utils.orZero
+import bicca.lucas.agronutriapp.utils.withComma
 
 class ViewResultViewModel(application: Application, val infoForm: InfoForm) : AndroidViewModel(application) {
 
-    val inputTypeLabel = ObservableInt(infoForm.inputType?.nameId!!)
     val showLimingResult = ObservableBoolean(false)
     val showFertilizingResult = ObservableBoolean(false)
     val limingResult = ObservableField("")
     val limingByAreaResult = ObservableField("")
     val plantLabel = ObservableField(getApplication<Application>()
             .getString(R.string.view_result_plant,
+                    getApplication<Application>().getString(infoForm.inputType?.nameId!!),
                     getApplication<Application>().getString(infoForm.plant?.stringId!!)))
 
     init {
@@ -45,10 +46,12 @@ class ViewResultViewModel(application: Application, val infoForm: InfoForm) : An
     private fun calculateByLiming() {
         infoForm.plant?.phEnum?.let {
             val result = Calculation.ncByPh(it, infoForm.mo.orZero(), infoForm.alCmol.orZero())
+
             limingResult.set(
                     getApplication<Application>()
                             .resources.getQuantityString(
-                            R.plurals.view_result_quantity_liming, result.toInt(), result)
+                            R.plurals.view_result_quantity_liming, result.toInt(),
+                            String.format("%.2f", result).toDouble().withComma())
             )
 
             val totalLiming = CalQuantity().bySMPAccordingPh(infoForm.indexSMP.orZero(), it)
@@ -56,9 +59,11 @@ class ViewResultViewModel(application: Application, val infoForm: InfoForm) : An
             val resultByArea = Calculation.adjustCalByAreaApplication(
                     result, infoForm.area.orZero(), infoForm.distance.orZero(), totalLiming
             )
+
             limingByAreaResult.set(getApplication<Application>()
                     .resources.getQuantityString(
-                    R.plurals.view_result_quantity_liming, resultByArea.toInt(), resultByArea)
+                    R.plurals.view_result_quantity_liming, resultByArea.toInt(),
+                    String.format("%.2f", resultByArea).toDouble().withComma())
             )
         }
     }

@@ -40,21 +40,15 @@
             tools:showIn="@layout/activity_view_result">
 
             <TextView
-                android:id="@+id/activity_view_result_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{viewModel.inputTypeLabel}"
-                tools:text="@string/input_type_fertilizing"/>
-
-            <TextView
                 android:id="@+id/activity_view_result_plant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.plantLabel}"
+                android:textSize="@dimen/activity_view_result_plant_label_size"
                 android:layout_marginTop="@dimen/activity_view_result_plant_margin_top"
                 tools:text="Arroz"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_view_result_title"/>
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <LinearLayout
                 android:id="@+id/activity_view_result_liming_container"
@@ -62,7 +56,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/activity_view_result_container_margin_top"
+                android:padding="@dimen/activity_view_result_result_container_padding"
                 app:layout_constraintTop_toBottomOf="@id/activity_view_result_plant"
+                android:background="@drawable/result_container"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:visibility="@{viewModel.showLimingResult ? View.VISIBLE : View.GONE}">
@@ -70,18 +66,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
                     android:textSize="@dimen/activity_view_result_option_label_size"
                     android:text="@string/view_result_first_option"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
                     android:text="@{viewModel.limingResult}"
                     tools:text="2 toneladas"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
                     android:layout_marginTop="@dimen/activity_view_result_option_margin_top"
                     android:textSize="@dimen/activity_view_result_option_label_size"
                     android:text="@string/view_result_second_option"/>
@@ -89,12 +88,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
                     android:text="@{viewModel.limingByAreaResult}"
                     tools:text="@string/view_result_quantity_liming_tools"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
                     android:layout_marginTop="@dimen/activity_view_result_days_margin_top"
                     android:text="@string/view_result_days_liming_tools"/>
             </LinearLayout>
@@ -104,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/activity_view_result_container_margin_top"
-                app:layout_constraintTop_toBottomOf="@id/activity_view_result_title"
+                app:layout_constraintTop_toBottomOf="@id/activity_view_result_plant"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:visibility="@{viewModel.showFertilizingResult ? View.VISIBLE : View.GONE}"
